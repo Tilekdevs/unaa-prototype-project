@@ -1,0 +1,27 @@
+.posts {
+  width: 100%;
+  &__title {
+    margin: 30px 110px;
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 20px;
+    color: #333;
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 10px;
+      left: -27px;
+      width: 20px;
+      height: 2px;
+      background-color: #538ffc;
+    }
+  }
+
+  &__container {
+    display: flex;
+    padding: 10px 60px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
