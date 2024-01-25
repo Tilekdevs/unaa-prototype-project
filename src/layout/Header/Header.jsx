@@ -1,5 +1,7 @@
 import React from "react";
 import "./header.scss";
+import SignModal from './SignModal/SignInModal'
+//assets
 import Logo from "../../assets/img/footer-logo.png";
 import { Avatar } from "@mui/material";
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -126,9 +128,9 @@ const Header = () => {
         <Typography sx={{ p: 2 }}>
           <div className="header__popover">
             <ul className="header__popover-list">
-              <li className="header__popover-item">Войти</li>
+              <li className="header__popover-item"><SignModal/></li>
             </ul>
-            <ul className="header__popover-list">
+            {/* <ul className="header__popover-list">
               <li className="header__popover-item">Регистрация</li>
             </ul>
             <ul className="header__popover-list">
@@ -136,7 +138,7 @@ const Header = () => {
             </ul>
             <ul className="header__popover-list">
               <li className="header__popover-item">Войти</li>
-            </ul>
+            </ul> */}
           </div>
         </Typography>
       </Popover>
