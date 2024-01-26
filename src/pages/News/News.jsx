@@ -10,7 +10,7 @@ const News = () => {
 
   const getNews = async () => {
     try {
-      const res = await axios.get('http://127.0.0.1:8000/api/news/news')
+      const res = await axios.get('http://127.0.0.1:8000/api/news')
       setNews(res.data)
     }
     catch (err) {

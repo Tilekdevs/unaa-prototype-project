@@ -1,0 +1,45 @@
+
+.burger-menu {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 9999 !important;
+
+  .burger-icon {
+    cursor: pointer;
+    font-size: 24px;
+    margin-right: 10px;
+  }
+
+  .close-icon {
+    cursor: pointer;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .menu-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+
+    li {
+      padding: 10px;
+      cursor: pointer;
+
+      a {
+        text-decoration: none;
+        color: #b8b7ad;
+        font-size: 18px;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1150px) {
+    display: none;
+  }
+}
