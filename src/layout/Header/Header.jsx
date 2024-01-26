@@ -1,6 +1,6 @@
 import React from "react";
 import "./header.scss";
-import Logo from "../../assets/img/footer-logo.png";
+import Logo from "../../assets/img/header-logo.jpg";
 import { Avatar } from "@mui/material";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import Popover from "@mui/material/Popover";
@@ -56,7 +56,7 @@ const Header = () => {
           <li>
             <a
               className="header__nav-item"
-              href="/"
+              href="/news"
             >
               Новости
             </a>
@@ -132,10 +132,10 @@ const Header = () => {
               <li className="header__popover-item">Регистрация</li>
             </ul>
             <ul className="header__popover-list">
-              <li className="header__popover-item">Войти</li>
+              <li className="header__popover-item">Профиль</li>
             </ul>
             <ul className="header__popover-list">
-              <li className="header__popover-item">Войти</li>
+              <li className="header__popover-item">Выйти</li>
             </ul>
           </div>
         </Typography>
