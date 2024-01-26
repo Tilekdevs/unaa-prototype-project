@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./header.scss";
 import Logo from "../../assets/img/header-logo.jpg";
 import { Avatar } from "@mui/material";
@@ -6,9 +6,19 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
+import { IoMdClose } from "react-icons/io";
+import { HiMenuAlt3 } from "react-icons/hi";
+import { slide as Menu } from "react-burger-menu";
 
 const Header = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -23,17 +33,17 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__logo">
-      <img
-        className="header__img"
-        src={Logo}
-        alt="Logo"
-      />
-      <a
-        className="header__title"
-        href="/"
-      >
-        Государственное учреждение УНАА
-      </a>
+        <img
+          className="header__img"
+          src={Logo}
+          alt="Logo"
+        />
+        <a
+          className="header__title"
+          href="/"
+        >
+          Государственное учреждение УНАА
+        </a>
       </div>
       <nav className="header__nav">
         <ul className="header__nav-list">
@@ -88,21 +98,15 @@ const Header = () => {
           <li>
             <a
               className="header__nav-item"
-              href="/about"
+              href="/camera"
             >
               Онлайн Камеры
             </a>
           </li>
         </ul>
       </nav>
-      {/* <span className="header__avatar">
-        <Avatar
-          src="/broken-image.jpg"
-          className="header__avatar-icon"
-        />
-        <MdKeyboardArrowDown />
-      </span> */}
-      <Button
+     <div className="header__right">
+     <Button
         className="header__avatar"
         aria-describedby={id}
         onClick={handleClick}
@@ -140,6 +144,8 @@ const Header = () => {
           </div>
         </Typography>
       </Popover>
+      <BurgerMenu/>
+     </div>   
     </header>
   );
 };

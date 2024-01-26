@@ -17,15 +17,15 @@
     font-size: 30px !important;
   }
   &-day {
-    font-size: 14px;
+    font-size: 16px;
     color: #333;
   }
   &-month {
-    font-size: 14px;
-    color: #333;
+    font-size: 16px;
+    color: #1877f2;
   }
   &-year {
-    font-size: 14px;
+    font-size: 16px;
     color: #333;
   }
   &-title {
@@ -41,7 +41,7 @@
     margin: 15px 35px;
     display: flex;
     img {
-      max-width: 100%;
+      max-width: 85%;
       height: auto;
       object-fit: cover;
     }
@@ -52,7 +52,7 @@
     max-width: 1010px;
     &-desc {
       padding-bottom: 10px;
-      font-size: 16px;
+      font-size: 18px;
     }
     &::after {
       content: "";
@@ -62,7 +62,7 @@
     }
   }
   &-bottom {
-    width: 100%;
+    max-width: 1150px;
     height: auto;
     display: flex;
     justify-content: space-between;
@@ -82,8 +82,11 @@
       font-size: 28px;
       cursor: pointer;
       &:hover {
-        color: #25d366; 
+        color: #25d366;
       }
     }
   }
 }
+
+
+

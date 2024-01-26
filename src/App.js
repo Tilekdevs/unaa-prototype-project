@@ -5,6 +5,7 @@ import Layout from './layout/Layout';
 import AboutUs from './pages/AboutUs/AboutUs';
 import Home from './pages/Home/Home';
 import News from './pages/News/News'
+import Camera from "./pages/Camera/Camera"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path={'/about'} element={<AboutUs />} />
           <Route path={'/news'} element={<News />} />
           <Route path={'/newsdetails'} element={<NewsDetails />} />
+          <Route path={'camera'} element={<Camera/>} />
         </Route>
       </Routes>
     </div>
