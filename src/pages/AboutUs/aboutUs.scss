@@ -13,64 +13,76 @@
   }
 }
 
-.section__paragraph {
-  font-family: Arial, sans-serif;
-  margin-bottom: 20px;
-
-  &.contact {
-    font-weight: bold;
-  }
-
-  &.address {
-    color: #007bff;
-  }
-
-  &.phone {
-    color: #28a745;
-  }
-
-  &.working-hours {
-    color: #dc3545;
-  }
-}
-
 .About {
-  // display: flex;
+  display: flex;
   position: relative;
   justify-content: center;
-  // flex-wrap: wrap;
-  // gap: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.card {
-  // display: flex;
-  // flex-wrap: wrap;
-  // flex-direction: column;
-  // width: 300px;
-  // justify-content: space-between;
+.MainCardItem {
+  display: flex;
   position: relative;
-  border: 1px solid #ddd;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  transition: box-shadow 0.3s ease; 
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 
-  &:hover {
-    box-shadow: 0 8px 16px rgba(15, 15, 15, 0.2); 
-  }
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 300px;
+    height: 400px;
+    justify-content: space-between;
+    position: relative;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease; 
+    cursor: pointer;
 
-  .info {
-    flex: 1;
-    font-size: 1em;
-    line-height: 1.5;
-  }
+    &:hover {
+      box-shadow: 0 8px 16px rgba(15, 15, 15, 0.2); 
+    }
 
-  .title {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 10px;
+    .info {
+      flex: 1;
+      font-size: 1em;
+      line-height: 1.5;
+    }
+
+    .title {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
   }
 }
 
 
+
+.About.contacts {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add this to your existing styles in aboutUs.scss */
+.animated-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animated-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
