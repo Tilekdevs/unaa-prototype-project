@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./header.scss";
 import SignModal from './SignModal/SignInModal'
-//assets
+import Logo from "../../assets/img/header-logo.jpg"
 import { Avatar } from "@mui/material";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import Popover from "@mui/material/Popover";
@@ -145,7 +145,7 @@ const Header = () => {
             </ul> */}
 
               <li className="header__popover-item">Выйти</li>
-
+              </ul>
           </div>
         </Typography>
       </Popover>
