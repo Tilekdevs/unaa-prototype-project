@@ -1,6 +1,12 @@
 import React from "react";
 import "./header.scss";
+<<<<<<< Updated upstream
 import Logo from "../../assets/img/footer-logo.png";
+=======
+import SignModal from './SignModal/SignInModal'
+import Logo from "../../assets/img/header-logo.jpg"
+//assets
+>>>>>>> Stashed changes
 import { Avatar } from "@mui/material";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import Popover from "@mui/material/Popover";
@@ -136,6 +142,12 @@ const Header = () => {
             </ul>
             <ul className="header__popover-list">
               <li className="header__popover-item">Войти</li>
+<<<<<<< Updated upstream
+=======
+            </ul> */}
+
+              <li className="header__popover-item">Выйти</li>
+>>>>>>> Stashed changes
             </ul>
           </div>
         </Typography>
