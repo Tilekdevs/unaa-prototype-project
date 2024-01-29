@@ -11,7 +11,7 @@ const StreamImageCard = ({ currentStreamId }) => (
           id="streamImage"
           className="img-rounded"
           style={{ maxWidth: '100%' }}
-          src={`http://127.0.0.1:8000/api/stream/streams/${currentStreamId}`}  
+          src={`http://127.0.0.1:8000/api/streams/${currentStreamId}`}  
           alt="Stream"
         />
       </CardContent>
@@ -45,13 +45,11 @@ const Camera = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/api/stream/streams/`);
+        const response = await axios.get(`http://127.0.0.1:8000/api/streams/`);
         setStreams(response.data);
-        // Set the current stream to the first one by default
         setCurrentStreamId(response.data.length > 0 ? response.data[0].id : null);
       } catch (error) {
         console.error('Error fetching data:', error.message);
-        // Handle the error
       } finally {
         setLoading(false);
       }
@@ -77,10 +75,10 @@ const Camera = () => {
         <p>Loading...</p>
       ) : (
         <>
-          {/* Display the current stream image */}
+         
           <StreamImageCard currentStreamId={currentStreamId} />
 
-          {/* Display the list of streams with links to change the current stream */}
+     
           <StreamTableCard streams={streams} changeStreamImage={changeStreamImage} />
         </>
       )}

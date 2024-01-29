@@ -8,7 +8,6 @@ import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
-import Logo from "../../assets/img/header-logo.jpg"
 // import { IoMdClose } from "react-icons/io";
 // import { HiMenuAlt3 } from "react-icons/hi";
 // import { slide as Menu } from "react-burger-menu";
@@ -144,7 +143,7 @@ const Header = () => {
 
               <li className="header__popover-item">Войти</li>
             </ul> */}
-            </ul>
+         
               <li className="header__popover-item">Выйти</li>
               </ul>
           </div>
