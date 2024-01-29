@@ -1,0 +1,76 @@
+.MainPageAboutUs {
+  margin: 0;
+  padding: 50px;
+}
+
+.AboutCompany {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+
+  & header {
+    margin: 10px;
+  }
+}
+
+.section__paragraph {
+  font-family: Arial, sans-serif;
+  margin-bottom: 20px;
+
+  &.contact {
+    font-weight: bold;
+  }
+
+  &.address {
+    color: #007bff;
+  }
+
+  &.phone {
+    color: #28a745;
+  }
+
+  &.working-hours {
+    color: #dc3545;
+  }
+}
+
+.About {
+  // display: flex;
+  position: relative;
+  justify-content: center;
+  // flex-wrap: wrap;
+  // gap: 20px;
+}
+
+.card {
+  // display: flex;
+  // flex-wrap: wrap;
+  // flex-direction: column;
+  // width: 300px;
+  // justify-content: space-between;
+  position: relative;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease; 
+
+  &:hover {
+    box-shadow: 0 8px 16px rgba(15, 15, 15, 0.2); 
+  }
+
+  .info {
+    flex: 1;
+    font-size: 1em;
+    line-height: 1.5;
+  }
+
+  .title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+}
+
+

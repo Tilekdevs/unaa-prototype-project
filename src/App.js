@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import PostsDetails from './components/Posts/PostsDetails/PostsDetails';
+import NewsDetails from '../src/pages/News/NewsDetails/NewsDetails';
 import Layout from './layout/Layout';
 import AboutUs from './pages/AboutUs/AboutUs';
 import Home from './pages/Home/Home';
-import Posts from './pages/Posts/Posts';
+import News from './pages/News/News'
+import Camera from "./pages/Camera/Camera"
 
 function App() {
   return (
