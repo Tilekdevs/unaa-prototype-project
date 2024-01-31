@@ -4,9 +4,11 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import ContactList from "./AboutDetails/ContactsDetails/ContactList"
+import ContactList from "./AboutDetails/ContactsDetails/_ContactsData"
 import Contacts from './AboutDetails/ContactsDetails/Сontacts';
+import Managments from './AboutDetails/Managments';
 import "./aboutUs.scss"
+import History from './AboutDetails/History'
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -54,26 +56,18 @@ export default function AboutUs() {
         <Box sx={{ width: '100%' }}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider', display: 'flex', position: 'relative', justifyContent: 'center' }}>
             <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-              <Tab label="О предприятии" {...a11yProps(0)} />
-              <Tab label="Руководство" {...a11yProps(1)} />
-              <Tab label="История" {...a11yProps(2)} />
-              <Tab label="Услуги" {...a11yProps(3)} />
-              <Tab label="Контакты" {...a11yProps(4)} />
+              <Tab label="Руководство" {...a11yProps(0)} />
+              <Tab label="История" {...a11yProps(1)} />
+              <Tab label="Контакты" {...a11yProps(2)} />
             </Tabs>
           </Box>
           <CustomTabPanel value={value} index={0}>
-            О предприятии
+            <Managments/>
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
-            Руководство
+            <History/>
           </CustomTabPanel>
           <CustomTabPanel value={value} index={2}>
-            История
-          </CustomTabPanel>
-          <CustomTabPanel value={value} index={3}>
-            Услуги
-          </CustomTabPanel>
-          <CustomTabPanel value={value} index={4}>
             <ContactList contacts={Contacts}/>
           </CustomTabPanel>
         </Box>

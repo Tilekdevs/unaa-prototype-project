@@ -28,40 +28,39 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+}
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease; 
+  cursor: pointer;
 
-  .card {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 100%;
-    justify-content: space-between;
-    position: relative;
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    transition: box-shadow 0.3s ease; 
-    cursor: pointer;
+  &:hover {
+    box-shadow: 0 8px 16px rgba(15, 15, 15, 0.2); 
+  }
 
-    &:hover {
-      box-shadow: 0 8px 16px rgba(15, 15, 15, 0.2); 
-    }
+  .info {
+    flex: 1;
+    font-size: 1em;
+    line-height: 1.5;
+  }
 
-    .info {
-      flex: 1;
-      font-size: 1em;
-      line-height: 1.5;
-    }
-
-    .title {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-    }
-    p {
-      font-style: italic;
-      // font-style: oblique;
-    }
+  .title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  p {
+    font-style: italic;
+    // font-style: oblique;
   }
 }
 
