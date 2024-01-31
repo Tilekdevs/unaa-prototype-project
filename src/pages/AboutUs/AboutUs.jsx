@@ -52,7 +52,7 @@ export default function AboutUs() {
     <div className='MainTabsContainer'>
       <div className='container'>
         <Box sx={{ width: '100%' }}>
-          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider', display: 'flex', position: 'relative', justifyContent: 'center' }}>
             <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
               <Tab label="О предприятии" {...a11yProps(0)} />
               <Tab label="Руководство" {...a11yProps(1)} />
