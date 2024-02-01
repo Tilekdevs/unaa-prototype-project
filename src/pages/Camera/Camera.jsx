@@ -1,41 +1,53 @@
-  import React, { useState, useEffect } from 'react';
-import { Card, CardContent, Typography, Table, TableBody, TableCell, TableRow, Container } from '@mui/material';
-import ButtonAppBar from '../../components/ButtonAppBar/ButtonAppBar';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Card, CardContent } from '@mui/material';
+import './camera.scss';
 
 const StreamImageCard = ({ currentStreamId }) => (
-  <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: '35px', width: '120vh' }}>
-    {currentStreamId && (
-      <CardContent>
+  <div className='video'>
+    <div className='video__content'>
+      {currentStreamId && (
         <img
           id="streamImage"
           className="img-rounded"
           style={{ maxWidth: '100%' }}
-          src={`http://127.0.0.1:8000/api/streams/${currentStreamId}`}  
+          src={`http://127.0.0.1:8000/api/streams/${currentStreamId}`}
           alt="Stream"
         />
-      </CardContent>
-    )}
-  </Card>
+      )}
+    </div>
+  </div>
 );
 
+// const StreamTableCard = ({ streams, changeStreamImage }) => (
+//   <div className='camera__title'>
+//     <div className='camera__title-block'>
+//       {streams.map((stream) => (
+//         <ul key={stream.id} className="camera__title-list">
+//           <li className="camera__title-item" onClick={() => changeStreamImage(stream.id)}>
+//             {stream.title}
+//           </li>
+//         </ul>
+//       ))}
+//     </div>
+//   </div>
+// );
+
+
 const StreamTableCard = ({ streams, changeStreamImage }) => (
-  <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: '40%', mt: '35px', margin: '15px' }}>
-    <Table>
-      <TableBody>
-        {streams.map((stream) => (
-          <TableRow key={stream.id}>
-            <TableCell>
-              <Typography component="a" href="#" onClick={() => changeStreamImage(stream.id)}>
-                {stream.title}
-              </Typography>
-            </TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
-  </Card>
+  <div className='camera__title'>
+    <div className='camera__title-block'>
+      {Array.from({ length: 30 }, (_, index) => (
+        <ul key={index} className="camera__title-list">
+          <li className="camera__title-item" onClick={() => changeStreamImage(index + 1)}>
+            Stream {index + 1}
+          </li>
+        </ul>
+      ))}
+    </div>
+  </div>
 );
+
 
 const Camera = () => {
   const [streams, setStreams] = useState([]);
@@ -54,35 +66,31 @@ const Camera = () => {
         setLoading(false);
       }
     };
-  
+
     fetchData();
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []);
 
   const changeStreamImage = async (streamId) => {
     try {
-      await fetch(`http://127.0.0.1:8000/api/stream/streams/${streamId}`);
+      await axios.get(`http://127.0.0.1:8000/api/streams/${streamId}`);
       setCurrentStreamId(streamId);
     } catch (error) {
       console.error('Error fetching stream:', error.message);
     }
-  }
+  };
 
   return (
-    <div>
-      <ButtonAppBar />
-      <Container sx={{ display: 'flex' }}>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <>
-         
-          <StreamImageCard currentStreamId={currentStreamId} />
-
-     
-          <StreamTableCard streams={streams} changeStreamImage={changeStreamImage} />
-        </>
-      )}
-    </Container>
+    <div className='camera'>
+      <div className="camera__container">
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          <>
+            <StreamImageCard currentStreamId={currentStreamId} />
+            <StreamTableCard streams={streams} changeStreamImage={changeStreamImage} />
+          </>
+        )}
+      </div>
     </div>
   );
 };

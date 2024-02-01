@@ -6,6 +6,7 @@ import AboutUs from './pages/AboutUs/AboutUs';
 import Home from './pages/Home/Home';
 import News from './pages/News/News'
 import Camera from "./pages/Camera/Camera"
+import Jobs from './pages/Jobs/Jobs';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path={'/news'} element={<News />} />
           <Route path={'/news/:id'} element={<NewsDetails />} />
           <Route path={'camera'} element={<Camera/>} />
+          <Route path={'jobs'} element={<Jobs/>} />
         </Route>
       </Routes>
     </div>

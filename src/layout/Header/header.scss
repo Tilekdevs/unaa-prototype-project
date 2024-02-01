@@ -1,6 +1,6 @@
 .header {
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
+  background-color:#1e88e5;
+  color:#ffffff;
   padding: 40px;
   display: flex;
   align-items: center;
@@ -22,7 +22,7 @@
 
   &__title {
     text-decoration: none;
-    color: #000;
+    color: #ffffff;
     width: 100px;
     font-weight: 700;
     padding: 10px 0;
@@ -37,15 +37,11 @@
   }
 
   &__nav-item {
-    color: black;
+    color: white;
     padding: 10px;
     cursor: pointer;
     font-size: 17px;
     text-decoration: none;
-    &:hover {
-      color: #0345bf;
-      transition: all 0.3s ease;
-    }
   }
   &__right {
     display: flex;

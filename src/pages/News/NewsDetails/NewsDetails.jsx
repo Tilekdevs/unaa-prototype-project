@@ -79,7 +79,11 @@ const NewsDetails = () => {
           </Swiper>
         </div>
         <div className="news__details-desc">
-          <p className="news__details-desc-desc">{newsItem.text}</p>
+          <p className="news__details-desc-desc">
+          {newsItem.text.split('\n').map((paragraph, index) => (
+            <p key={index} className="news__details-desc-desc">{paragraph}</p>
+          ))}
+          </p>
         </div>
       </div>
       <div className="news__details-bottom">
