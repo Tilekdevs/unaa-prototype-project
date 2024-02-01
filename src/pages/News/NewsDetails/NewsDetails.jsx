@@ -11,7 +11,7 @@ import "./newsDetails.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import {  Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 
 import NavigationComponent from "../../../components/Navigation/Navigation";
 
@@ -79,11 +79,13 @@ const NewsDetails = () => {
           </Swiper>
         </div>
         <div className="news__details-desc">
-          <p className="news__details-desc-desc">
-          {newsItem.text.split('\n').map((paragraph, index) => (
-            <p key={index} className="news__details-desc-desc">{paragraph}</p>
-          ))}
-          </p>
+          <div className="news__details-desc-desc">
+            {newsItem.text.split("\n").map((paragraph, index) => (
+              <div key={index} className="news__details-paragraph">
+                {paragraph}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <div className="news__details-bottom">

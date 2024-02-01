@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import Navigation from '../../components/Navigation/Navigation';
-import './news.scss';
-import NewsCard from './NewsCard/NewsCard';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import Navigation from "../../components/Navigation/Navigation";
+import "./news.scss";
+import NewsCard from "./NewsCard/NewsCard";
+import axios from "axios";
 
 const News = () => {
   const [newsData, setNewsData] = useState([]);
@@ -10,10 +10,10 @@ const News = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/news');
+        const response = await axios.get("http://127.0.0.1:8000/api/news");
         setNewsData(response.data);
       } catch (error) {
-        console.error('Error fetching news data:', error);
+        console.error("Error fetching news data:", error);
       }
     };
 
@@ -26,9 +26,7 @@ const News = () => {
       <Navigation />
       <div className="news__container">
         {newsData.map((newsItem) => (
-          <a key={newsItem.id} to={`/news/${newsItem.id}`}>
-            <NewsCard newsItem={newsItem} />
-          </a>
+          <NewsCard key={newsItem.id} newsItem={newsItem} />
         ))}
       </div>
     </section>
@@ -36,4 +34,3 @@ const News = () => {
 };
 
 export default News;
-
