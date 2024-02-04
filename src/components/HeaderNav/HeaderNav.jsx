@@ -1,69 +1,50 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../../layout/Header/header.scss'
+import Services from '../../pages/Services/Services'
 
 const HeaderNav = () => {
-  return (
-    <nav className="header__nav">
-        <ul className="header__nav-list">
-          <li>
-            <a
-              className="header__nav-item"
-              href="/"
-            >
-              Главная
-            </a>
-          </li>
-          <li>
-            <a
-              className="header__nav-item"
-              href="/about"
-            >
-              О нас
-            </a>
-          </li>
-          <li>
-            <a
-              className="header__nav-item"
-              href="/news"
-            >
-              Новости
-            </a>
-          </li>
-          <li>
-            <a
-              className="header__nav-item"
-              href="/about"
-            >
-              Сервисы
-            </a>
-          </li>
-          <li>
-            <a
-              className="header__nav-item"
-              href="/about"
-            >
-              Информация
-            </a>
-          </li>
-          <li>
-            <a
-              className="header__nav-item"
-              href="/jobs"
-            >
-              Вакансии
-            </a>
-          </li>
-          <li>
-            <a
-              className="header__nav-item"
-              href="/camera"
-            >
-              Онлайн Камеры
-            </a>
-          </li>
-        </ul>
-      </nav>
-  )
+	return (
+		<nav className='header__nav'>
+			<ul className='header__nav-list'>
+				<li>
+					<Link className='header__nav-item' to='/'>
+						Главная
+					</Link>
+				</li>
+				<li>
+					<Link className='header__nav-item' to='/about'>
+						О нас
+					</Link>
+				</li>
+				<li>
+					<Link className='header__nav-item' to='/news'>
+						Новости
+					</Link>
+				</li>
+				<li>
+					<Link className='header__nav-item'>
+						<Services />
+					</Link>
+				</li>
+				<li>
+					<Link className='header__nav-item' to='/about'>
+						Информация
+					</Link>
+				</li>
+				<li>
+					<Link className='header__nav-item' to='/jobs'>
+						Вакансии
+					</Link>
+				</li>
+				<li>
+					<Link className='header__nav-item' to='/camera'>
+						Онлайн Камеры
+					</Link>
+				</li>
+			</ul>
+		</nav>
+	)
 }
 
 export default HeaderNav
