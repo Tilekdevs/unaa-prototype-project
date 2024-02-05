@@ -1,66 +1,74 @@
 .MainTabsContainer {
-  display: flex;
-  position: relative;
-  justify-content: center;
+	display: flex;
+	position: relative;
+	justify-content: center;
 }
 
 .AboutCompany {
-  position: relative;
-  align-items: center;
-  justify-content: center;
+	position: relative;
+	align-items: center;
+	justify-content: center;
 
-  & header {
-    margin: 10px;
-  }
+	& header {
+		margin: 10px;
+	}
 }
 
 .About {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
+	display: flex;
+	position: relative;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 20px;
 }
 
 .MainCardItem {
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+	display: flex;
+	position: relative;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: center;
 }
 .card {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  width: 100%;
-  justify-content: space-between;
-  position: relative;
-  border: 1px solid #ddd;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  transition: box-shadow 0.3s ease; 
-  cursor: pointer;
+	display: flex;
+	width: 100%;
+	gap: 45px;
+	position: relative;
+	border: 1px solid #ddd;
+	padding: 15px;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	margin-bottom: 20px;
+	transition: box-shadow 0.3s ease;
+	cursor: pointer;
+	&__img {
+		object-fit: contain;
+    height: 400px;
+    width: 400px;
+	}
 
-  &:hover {
-    box-shadow: 0 8px 16px rgba(15, 15, 15, 0.2); 
+  .info__container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
-  .info {
-    flex: 1;
-    font-size: 1em;
-    line-height: 1.5;
-  }
+	&:hover {
+		box-shadow: 0 8px 16px rgba(15, 15, 15, 0.2);
+	}
 
-  .title {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
-  p {
-    font-style: italic;
-    // font-style: oblique;
-  }
+	.info {
+		flex: 1;
+		font-size: 1em;
+		line-height: 1.5;
+	}
+
+	.title {
+		font-size: 1.2em;
+		margin-bottom: 10px;
+	}
+	p {
+		font-style: italic;
+		// font-style: oblique;
+	}
 }
-
