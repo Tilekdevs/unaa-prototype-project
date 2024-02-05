@@ -68,13 +68,13 @@ const NewsDetails = () => {
             className="news__swiper"
           >
             {newsItem.images.map((image, index) => (
-              <SwiperSlide
-                key={index}
-                className="news__swiper-img"
-                style={{
-                  backgroundImage: `url(http://127.0.0.1:8000${image.image})`,
-                }}
-              />
+              <SwiperSlide key={index}>
+                <img
+                  src={`http://127.0.0.1:8000${image.image}`}
+                  alt={`Slide ${index}`}
+                  className="news__swiper-img"
+                />
+              </SwiperSlide>
             ))}
           </Swiper>
         </div>

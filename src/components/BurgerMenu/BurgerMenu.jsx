@@ -20,6 +20,9 @@ const BurgerMenu = () => {
       <div className="burger-icon" onClick={toggleMenu}>
         <HiMenuAlt3 />
       </div>
+
+      {isMenuOpen && <div className="overlay" onClick={closeMenu}></div>}
+
       <Menu
         isOpen={isMenuOpen}
         onStateChange={(state) => {
@@ -43,7 +46,7 @@ const BurgerMenu = () => {
             background: "#bdc3c7",
           },
           bmMenu: {
-            background: "#373a47",
+            background: "#1e88e5",
             padding: "2.5em 1.5em 0",
             fontSize: "1.15em",
           },
@@ -56,7 +59,7 @@ const BurgerMenu = () => {
             fill: "#373a47",
           },
           bmItemList: {
-            color: "#b8b7ad",
+            color: "#ffffff",
             padding: "0.8em",
           },
           bmOverlay: {
@@ -72,10 +75,10 @@ const BurgerMenu = () => {
             <a href="/">Главная</a>
           </li>
           <li onClick={closeMenu}>
-            <a href="/news">О нас</a>
+            <a href="/about">О нас</a>
           </li>
           <li onClick={closeMenu}>
-            <a href="/contacts">Новости</a>
+            <a href="/news">Новости</a>
           </li>
           <li onClick={closeMenu}>
             <a href="/contacts">Сервисы</a>
@@ -84,12 +87,14 @@ const BurgerMenu = () => {
             <a href="/contacts">Информация</a>
           </li>
           <li onClick={closeMenu}>
-            <a href="/contacts">Вакансии</a>
+            <a href="/jobs">Вакансии</a>
           </li>
           <li onClick={closeMenu}>
-            <a href="/contacts">Онлайн Камеры</a>
+            <a href="/camera">Онлайн Камеры</a>
           </li>
         </ul>
+
+        
       </Menu>
     </div>
   );

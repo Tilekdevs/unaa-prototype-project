@@ -1,30 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import navigationData from "../../utils/navigationData";
 import "./navigation.scss";
 
-// Комопнент навигации (ГЛАВНАЯ/Новости либо ГЛАВНАЯ/О нас)
-
 const Navigation = () => {
+  const location = useLocation();
+  const currentPath = location.pathname.split('/').filter(Boolean);
+
   return (
     <div className="navigation">
       <div className="navigation__container">
-        <Link
-          className="navigation__link"
-          to={"/"}
-        >
-          Главная {'> '}
+        <Link className="navigation__link" to={"/"}>
+          Главная {'/ '}
         </Link>
 
-        {navigationData.map((item, index) => (
+        {currentPath.map((segment, index) => (
           <span key={index}>
-            {"  "}
-            {"  "}
+            {'  '}
+            {'  '}
             <Link
-              className="navigation__link"
-              to={`${item.en}`}
+              className={`navigation__link ${index === currentPath.length - 1 ? 'active' : ''}`}
+              to={`/${index === currentPath.length - 1 ? '' : segment}`}
             >
-              {item.ru}
+              {index === currentPath.length - 1
+                ? navigationData.find(item => item.en === segment)?.ru || segment
+                : navigationData.find(item => item.en === segment)?.ru || segment
+              }
             </Link>
           </span>
         ))}
@@ -34,3 +35,9 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
+
+
+
+
+

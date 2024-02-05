@@ -20,7 +20,8 @@
 
   &__container {
     display: flex;
-    padding: 10px 60px;
+    justify-content: space-between;
+    padding: 20px 90px;
     flex-wrap: wrap;
     gap: 20px;
   }

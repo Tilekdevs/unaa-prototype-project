@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./header.scss";
 import SignModal from "./SignModal/SignInModal";
 import Logo from "../../assets/img/header-logo.jpg";
 import { Avatar } from "@mui/material";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import Popover from "@mui/material/Popover";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
@@ -16,7 +15,7 @@ const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const [isMenuOpen, setMenuOpen] = useState(false);
-  
+
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
@@ -32,7 +31,7 @@ const Header = () => {
   const id = open ? "simple-popover" : undefined;
 
   return (
-    <header className='header'>
+    <header className="header">
       <div className="header__logo">
         <img className="header__img" src={Logo} alt="Logo" />
         <a className="header__title" href="/">
@@ -60,8 +59,7 @@ const Header = () => {
             vertical: "bottom",
             horizontal: "left",
           }}
-        >
-          {/* <Typography sx={{ p: 2 }}>
+        >    
             <div className="header__popover">
               <div className="header__popover-list">
                 <li className="header__popover-item">
@@ -76,7 +74,6 @@ const Header = () => {
                 </li>
               </div>
             </div>
-          </Typography> */}
         </Popover>
         <BurgerMenu />
       </div>
