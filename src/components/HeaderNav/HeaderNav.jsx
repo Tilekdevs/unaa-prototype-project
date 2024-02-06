@@ -24,7 +24,8 @@ const HeaderNav = () => {
 				</li>
 				<li>
 					<Link className='header__nav-item'>
-						<Services />
+						{/* <Services /> */}
+						Сервисы
 					</Link>
 				</li>
 				<li>
