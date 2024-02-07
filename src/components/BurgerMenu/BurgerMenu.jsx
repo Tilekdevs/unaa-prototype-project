@@ -3,6 +3,7 @@ import { slide as Menu } from "react-burger-menu";
 import { IoMdClose } from "react-icons/io";
 import { HiMenuAlt3 } from "react-icons/hi";
 import "./burgerMenu.scss";
+import { FaRegUser } from "react-icons/fa";
 
 const BurgerMenu = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -50,7 +51,7 @@ const BurgerMenu = () => {
             padding: "2.5em 1.5em 0",
             fontSize: "1.15em",
           },
-          bmMenuWrap:{
+          bmMenuWrap: {
             top: "0px",
             zIndex: "6000",
             right: "-1px",
@@ -71,6 +72,9 @@ const BurgerMenu = () => {
           <IoMdClose />
         </div>
         <ul className="menu-items">
+          <button className="burger__menu-btn">
+            Войти <FaRegUser />
+          </button>
           <li onClick={closeMenu}>
             <a href="/">Главная</a>
           </li>
@@ -93,8 +97,6 @@ const BurgerMenu = () => {
             <a href="/camera">Онлайн Камеры</a>
           </li>
         </ul>
-
-        
       </Menu>
     </div>
   );

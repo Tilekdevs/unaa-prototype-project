@@ -17,18 +17,22 @@ const HomeSwiper = () => {
         pagination={{
           clickable: true,
         }}
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false
+      }}
         navigation={true}
         loop={true}
-        modules={[Navigation]}
+        modules={[Navigation, Autoplay]}
         className="swiper-container"
       >
         <SwiperSlide className="home__swiper">
-          <img className='home__swiper-img' src="https://www.pixground.com/sunset-over-the-sea-ai-generated-4k-wallpaper/?download-img=2k" alt="" />
+          <img className='home__swiper-img' src="https://mtd.gov.kg/wp-content/themes/mtd-gov/img/slide-2.png" alt="" />
         </SwiperSlide>
      
 
         <SwiperSlide className="home__swiper">
-        <img className='home__swiper-img' src="https://lh3.googleusercontent.com/proxy/mpt2K7pP66tXxaAo4nn5k2kztIUQqJep3PvOvit8x3dI9LrtB8VqTMj1qdPZtiWqcV62G4AGZSpfm20FczOyp2CjM4YIG55N6RbG-9RKWJG2__PrJAhzADNYckJl" alt="" />
+        <img className='home__swiper-img' src="https://mtd.gov.kg/wp-content/themes/mtd-gov/img/slide-1.png" alt="" />
         </SwiperSlide>
       </Swiper>
     </div>

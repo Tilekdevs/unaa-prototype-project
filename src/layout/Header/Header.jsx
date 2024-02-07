@@ -24,7 +24,7 @@ const Header = () => {
         </a>
       </div>
 
-      <HeaderNav />
+      <HeaderNav /> 
 
       <div className="header__right">
       

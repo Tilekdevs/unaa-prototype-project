@@ -38,6 +38,18 @@
     }
   }
 
+  .burger__menu-btn{
+    width: 115px;
+    height: 40px;
+    background-color: #ffffff;
+    color: #4285f4;
+    border: none;
+    align-items: center;
+    font-size: 19px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
   .overlay {
     position: fixed;
     top: 0;

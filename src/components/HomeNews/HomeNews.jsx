@@ -22,14 +22,13 @@ const HomeNews = () => {
 
   return (
     <section className='home__news'>
-      <h1 className="home__news-title">Новости</h1>
+      <h1 className="home__news-title">Последние новости</h1>
       <div className="home__news-container">
         {news.map((item) => (
           <div className="home__news-card" key={item.id}>
             <img className='home__news-img' src={item.images.length > 0 ? `http://127.0.0.1:8000${item.images[0].image}` : null} alt="" />
             <p className="home__news-date">{format(new Date(item.published_date), 'd MMMM yyyy года', { locale: ru })}</p>
             <h3 className="home__news-subtitle">{item.title}</h3>
-            <Link to={`news/${item.id}`} className="home__news-link">Подробнее</Link>
           </div>
         ))}
       </div>

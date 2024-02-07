@@ -22,7 +22,6 @@ const News = () => {
 
   return (
     <section className="news">
-      <h2 className="news__title">Новости</h2>
       <Navigation />
       <div className="news__container">
         {newsData.map((newsItem) => (
