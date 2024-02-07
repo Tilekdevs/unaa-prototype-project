@@ -1,11 +1,13 @@
 import React from 'react'
 import './jobs.scss'
 import Navigation from '../../components/Navigation/Navigation'
+import RegisterForm from '../../components/RegisterForm/RegisterForm'
 
 
 const Jobs = () => {
   return (
     <section className='jobs'>  
+     <RegisterForm/>
     <Navigation/>  
         <div className="jobs__container">
             <div className="jobs__card">

@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import '../../pages/Home/home.scss'
 
 const HomeNews = () => {
   const [news, setNews] = useState([]);
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getNews = async () => {
@@ -27,10 +30,12 @@ const HomeNews = () => {
         {news.map((item) => (
           <div className="home__news-card" key={item.id}>
             <img className='home__news-img' src={item.images.length > 0 ? `http://127.0.0.1:8000${item.images[0].image}` : null} alt="" />
+            <div className="home__news-info">
             <p className="home__news-date">{format(new Date(item.published_date), 'd MMMM yyyy года', { locale: ru })}</p>
-            <h3 className="home__news-subtitle">{item.title}</h3>
+            <h3 onClick={() => navigate(`/news/${item.id}`)} className="home__news-subtitle">{item.title}</h3>
+            </div>
           </div>
-        ))}
+        ))} 
       </div>
     </section>
   );

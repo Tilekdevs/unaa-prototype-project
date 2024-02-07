@@ -9,6 +9,8 @@ import News from './pages/News/News'
 import NewsDetails from './pages/News/NewsDetails/NewsDetails'
 import CalculatorServices from './pages/Services/CalculatorServices'
 
+
+
 function App() {
 	return (
 		<div className='App'>
@@ -19,8 +21,8 @@ function App() {
 					<Route path={'/news'} element={<News />} />
 					<Route path={'/news/:id'} element={<NewsDetails />} />
 					<Route path={'/calculator'} element={<CalculatorServices />} />
-					<Route path={'camera'} element={<Camera />} />
-					<Route path={'jobs'} element={<Jobs />} />
+					<Route path={'/camera'} element={<Camera />} />
+					<Route path={'/jobs'} element={<Jobs />} />
 				</Route>
 			</Routes>
 		</div>

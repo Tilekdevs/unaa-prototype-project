@@ -25,14 +25,12 @@
 }
 .home__news {
   width: 100%;
-  overflow: hidden;
   &-container {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 10px 90px;
-    gap: 25px;
+    margin: 10px 11%;
+    gap: 15px;
   }
   &-title {
     font-size: 26px;
@@ -44,9 +42,13 @@
     width: 385px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 10px;
+    gap: 15px;
     padding: 10px 15px;
+  }
+  &-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
   &-img {
     width: 360px;
@@ -63,6 +65,7 @@
   &-subtitle {
     font-size: 18px;
     color: #000;
+    cursor: pointer;
   }
   &-link {
     text-decoration: none;
