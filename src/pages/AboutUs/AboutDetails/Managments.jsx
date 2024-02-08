@@ -11,6 +11,7 @@ const Managments = () => {
 				const response = await axios.get(
 					'http://127.0.0.1:8000/api/about/management'
 				)
+				console.log('Response data:', response.data)
 				setManagementData(response.data)
 			} catch (error) {
 				console.error('Error fetching management data:', error)
@@ -24,12 +25,16 @@ const Managments = () => {
 		<div className='MainManagmentContainer'>
 			{managementData.map((manager, index) => (
 				<div className='card' key={index}>
-					  <img className='card__img' src={`http://127.0.0.1:8000${manager.avatar}`} alt='' />
-            <div className="info__container">
-            <h2 className='title'>{manager.name}</h2>
-					<p>{manager.description}</p>
-            </div>
-					
+					{console.log('Image URL:', `http://127.0.0.1:8000${manager.avatar}`)}
+					<img
+						className='card__img'
+						src={`http://127.0.0.1:8000${manager.avatar}`}
+						alt={''}
+					/>
+					<div className='info__container'>
+						<h2 className='title'>{manager.name}</h2>
+						<p>{manager.description}</p>
+					</div>
 				</div>
 			))}
 		</div>
