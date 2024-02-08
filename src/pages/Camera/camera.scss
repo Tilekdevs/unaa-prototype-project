@@ -32,6 +32,11 @@
         color: #2196f3;
         transition: 0.2s ease-in-out;
       }
+
+      &.active {
+        color: blue; 
+        font-weight: bold; 
+      }
     }
   }
 

@@ -19,12 +19,15 @@ const StreamImageCard = ({ currentStreamId }) => (
   </div>
 );
 
-const StreamTableCard = ({ streams, changeStreamImage }) => (
+const StreamTableCard = ({ streams, changeStreamImage, currentStreamId }) => (
   <div className='camera__title'>
     <div className='camera__title-block'>
       {streams.map((stream) => (
         <ul key={stream.id} className="camera__title-list">
-          <li className="camera__title-item" onClick={() => changeStreamImage(stream.id)}>
+          <li
+            className={`camera__title-item ${currentStreamId === stream.id ? 'active' : ''}`}
+            onClick={() => changeStreamImage(stream.id)}
+          >
             {stream.title}
           </li>
         </ul>
@@ -78,7 +81,7 @@ const Camera = () => {
         ) : (
           <>
             <StreamImageCard currentStreamId={currentStreamId} />
-            <StreamTableCard streams={streams} changeStreamImage={setCurrentStreamId} />
+            <StreamTableCard streams={streams} changeStreamImage={setCurrentStreamId} currentStreamId={currentStreamId} />
           </>
         )}
       </div>
@@ -87,4 +90,3 @@ const Camera = () => {
 };
 
 export default Camera;
-
