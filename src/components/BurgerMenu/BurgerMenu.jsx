@@ -3,13 +3,18 @@ import { slide as Menu } from "react-burger-menu";
 import { IoMdClose } from "react-icons/io";
 import { HiMenuAlt3 } from "react-icons/hi";
 import "./burgerMenu.scss";
-import { FaRegUser } from "react-icons/fa";
+import { FaRegUser, FaAngleDown } from "react-icons/fa";
 
 const BurgerMenu = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
   };
 
   const closeMenu = () => {
@@ -72,9 +77,6 @@ const BurgerMenu = () => {
           <IoMdClose />
         </div>
         <ul className="menu-items">
-          <button className="burger__menu-btn">
-            Войти <FaRegUser />
-          </button>
           <li onClick={closeMenu}>
             <a href="/">Главная</a>
           </li>
@@ -84,8 +86,22 @@ const BurgerMenu = () => {
           <li onClick={closeMenu}>
             <a href="/news">Новости</a>
           </li>
-          <li onClick={closeMenu}>
-            <a href="/contacts">Сервисы</a>
+          <li
+            onClick={(e) => {
+              e.stopPropagation(); 
+              toggleDropdown();
+            }}
+            className={isDropdownOpen ? "open" : ""}
+          >
+            <p className="burger__menu-title">
+              Сервисы <FaAngleDown />
+            </p>
+            {isDropdownOpen && (
+              <ul className="dropdown-menu">
+                <li>Сервис 1</li>
+                <li>Сервис 2</li>
+              </ul>
+            )}
           </li>
           <li onClick={closeMenu}>
             <a href="/contacts">Информация</a>
@@ -103,3 +119,4 @@ const BurgerMenu = () => {
 };
 
 export default BurgerMenu;
+
