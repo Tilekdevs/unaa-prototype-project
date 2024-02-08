@@ -1,4 +1,3 @@
-// Camera.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card, CardContent } from '@mui/material';
@@ -36,7 +35,7 @@ const StreamTableCard = ({ streams, changeStreamImage }) => (
 
 const Camera = () => {
   const [streams, setStreams] = useState([]);
-  const [currentStreamId, setCurrentStreamId] = useState(null);
+  const [currentStreamId, setCurrentStreamId] = useState(1); 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -44,7 +43,6 @@ const Camera = () => {
       try {
         const response = await axios.get('http://127.0.0.1:8000/api/streams/');
         setStreams(response.data);
-        setCurrentStreamId(response.data.length > 0 ? response.data[0].id : null);
       } catch (error) {
         console.error('Error fetching data:', error.message);
       } finally {
@@ -55,19 +53,22 @@ const Camera = () => {
     fetchData();
   }, []);
 
-  const changeStreamImage = async (streamId) => {
-    if (streamId !== currentStreamId) {
-      try {
-        setLoading(true);
-        await axios.get(`http://127.0.0.1:8000/api/streams/${streamId}`);
-        setCurrentStreamId(streamId);
-      } catch (error) {
-        console.error('Error fetching stream:', error.message);
-      } finally {
-        setLoading(false);
+  useEffect(() => {
+    const fetchStreamImage = async () => {
+      if (currentStreamId !== null) {
+        try {
+          setLoading(true);
+          await axios.get(`http://127.0.0.1:8000/api/streams/${currentStreamId}`);
+        } catch (error) {
+          console.error('Error fetching stream:', error.message);
+        } finally {
+          setLoading(false);
+        }
       }
-    }
-  };
+    };
+
+    fetchStreamImage();
+  }, [currentStreamId]);
 
   return (
     <div className='camera'>
@@ -77,7 +78,7 @@ const Camera = () => {
         ) : (
           <>
             <StreamImageCard currentStreamId={currentStreamId} />
-            <StreamTableCard streams={streams} changeStreamImage={changeStreamImage} />
+            <StreamTableCard streams={streams} changeStreamImage={setCurrentStreamId} />
           </>
         )}
       </div>
@@ -86,3 +87,4 @@ const Camera = () => {
 };
 
 export default Camera;
+
