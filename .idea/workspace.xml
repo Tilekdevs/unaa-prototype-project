@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4328b0b6-fc34-4eb9-b13c-9b53a73fd32a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/pages/AboutUs/AboutDetails/Managments.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AboutUs/AboutDetails/Managments.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AboutUs/AboutUs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AboutUs/AboutUs.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AboutUs/aboutUs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AboutUs/aboutUs.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Services/Services.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Services/Services.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,21 +31,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/unaa/src/pages/Posts&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MTConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/MyProjects/Unaa-Projects/UNAA",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "MTConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\User\Desktop\unaa\src\pages\Posts" />
@@ -62,6 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1705847560286</updated>
       <workItem from="1705847573373" duration="494000" />
+      <workItem from="1707233288170" duration="1339000" />
     </task>
     <servers />
   </component>

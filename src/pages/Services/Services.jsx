@@ -32,6 +32,11 @@ export default function Services() {
 									Калькулятор
 								</Link>
 							</MenuItem>
+							<MenuItem onClick={popupState.close}>
+								<Link to='/request-for-inspection' style={{ textDecoration: 'none', color: 'black' }}>
+									Обращение на осмотр
+								</Link>
+							</MenuItem>
 						</Menu>
 					</div>
 				)}

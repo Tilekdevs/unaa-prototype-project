@@ -9,8 +9,6 @@ import News from './pages/News/News'
 import NewsDetails from './pages/News/NewsDetails/NewsDetails'
 import CalculatorServices from './pages/Services/CalculatorServices'
 
-
-
 function App() {
 	return (
 		<div className='App'>
