@@ -5,6 +5,8 @@ const CalculatorServices = () => {
   const [carType, setCarType] = useState(null);
   const [engineVolume, setEngineVolume] = useState(null);
   const [year, setYear] = useState(null);
+  const [engineType, setEngineType] = useState(null);
+  const [status, setStatus] = useState(null);
   const [insuranceCost, setInsuranceCost] = useState(null);
   const [tariffs, setTariffs] = useState([]);
 
@@ -22,11 +24,13 @@ const CalculatorServices = () => {
   }, []);
 
   const calculateInsurance = () => {
-    if (carType && engineVolume && year) {
+    if (carType && engineVolume && year && engineType && status) {
       const selectedTariff = tariffs.find(item => 
         item.car.id === carType &&
         item.volume.id === engineVolume &&
-        item.year.id === year
+        item.year.id === year &&
+        item.engine.engine === engineType &&
+        item.status.status === status
       );
       if (selectedTariff) {
         setInsuranceCost(selectedTariff.sum);
@@ -40,7 +44,7 @@ const CalculatorServices = () => {
 
   return (
     <div className='calculator'>
-      <h2>Калькулятор страхования</h2>
+      <h2>Калькулятор оформления ТС</h2>
       <div>
         <label htmlFor='carType'>Тип автомобиля:</label>
         <select id='carType' onChange={e => setCarType(parseInt(e.target.value))}>
@@ -65,6 +69,24 @@ const CalculatorServices = () => {
           <option value=''>Выберите год</option>
           {tariffs.map((tariff, index) => (
             <option key={`year-${tariff.year.id}-${index}`} value={tariff.year.id}>{tariff.year.year}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label htmlFor='engineType'>Тип двигателя:</label>
+        <select id='engineType' onChange={e => setEngineType(e.target.value)}>
+          <option value=''>Выберите тип двигателя</option>
+          {tariffs.map((tariff, index) => (
+            <option key={`engine-${tariff.engine.id}-${index}`} value={tariff.engine.engine}>{tariff.engine.engine}</option>
+          ))}
+        </select>
+      </div>
+      <div> 
+        <label htmlFor='status'>Статус:</label>
+        <select id='status' onChange={e => setStatus(e.target.value)}>
+          <option value=''>Выберите статус</option>
+          {tariffs.map((tariff, index) => (
+            <option key={`status-${tariff.status.id}-${index}`} value={tariff.status.status}>{tariff.status.status}</option>
           ))}
         </select>
       </div>
