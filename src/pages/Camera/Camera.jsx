@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Card, CardContent } from '@mui/material';
 import './camera.scss';
 
 const StreamImageCard = ({ currentStreamId }) => (
@@ -29,7 +28,7 @@ const StreamTableCard = ({ streams, changeStreamImage, currentStreamId }) => (
             onClick={() => changeStreamImage(stream.id)}
           >
             {stream.title}
-          </li>
+          </li> 
         </ul>
       ))}
     </div>
