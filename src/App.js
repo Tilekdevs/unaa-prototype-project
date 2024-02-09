@@ -7,7 +7,7 @@ import Home from './pages/Home/Home'
 import Jobs from './pages/Jobs/Jobs'
 import News from './pages/News/News'
 import NewsDetails from './pages/News/NewsDetails/NewsDetails'
-import CalculatorServices from './pages/Services/CalculatorServices'
+import CalculatorServices from './pages/Services/Calculator/CalculatorServices'
 
 function App() {
 	return (
