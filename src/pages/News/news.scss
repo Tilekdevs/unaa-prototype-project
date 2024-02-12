@@ -1,22 +1,27 @@
 .news {
   width: 100%;
 
-    &:before {
-      content: "";
-      position: absolute;
-      bottom: 10px;
-      left: -27px;
-      width: 20px;
-      height: 2px;
-      background-color: #538ffc;
-    }
-  
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: -27px;
+    width: 20px;
+    height: 2px;
+    background-color: #538ffc;
+  }
 
   &__container {
     display: flex;
     justify-content: space-between;
-    padding: 20px 90px;
+    padding: 20px 15px; // Уменьшил внутренние отступы для маленьких экранов
     flex-wrap: wrap;
     gap: 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    &__container {
+      padding: 20px 90px; // Возвращаем оригинальные отступы для больших экранов
+    }
   }
 }
