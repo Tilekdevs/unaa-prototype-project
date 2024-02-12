@@ -18,7 +18,6 @@ export default function Services() {
 								padding: '10px',
 								cursor: 'pointer',
 								textDecoration: 'none',
-								color: 'white',
 							}}
 						>
 							Сервисы
@@ -33,7 +32,10 @@ export default function Services() {
 								</Link>
 							</MenuItem>
 							<MenuItem onClick={popupState.close}>
-								<Link to='/request-for-inspection' style={{ textDecoration: 'none', color: 'black' }}>
+								<Link
+									to='/request-for-inspection'
+									style={{ textDecoration: 'none', color: 'black' }}
+								>
 									Обращение на осмотр
 								</Link>
 							</MenuItem>
