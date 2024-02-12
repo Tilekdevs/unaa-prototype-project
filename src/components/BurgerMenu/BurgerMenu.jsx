@@ -3,7 +3,7 @@ import { slide as Menu } from "react-burger-menu";
 import { IoMdClose } from "react-icons/io";
 import { HiMenuAlt3 } from "react-icons/hi";
 import "./burgerMenu.scss";
-import { FaRegUser, FaAngleDown } from "react-icons/fa";
+import { FaAngleDown } from "react-icons/fa";
 
 const BurgerMenu = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);

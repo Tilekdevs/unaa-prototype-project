@@ -1,7 +1,6 @@
 import React from 'react';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
-// import { CiCalendarDate, FaFacebook, FaWhatsapp } from "react-icons/all"; 
 import { Link } from 'react-router-dom';
 import './newsCard.scss'
 

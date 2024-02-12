@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './registerForm.scss'
 import google from '../../assets/img/google.png'
 import { IoCloseOutline } from 'react-icons/io5'
-import LoginForm from '../LoginForm/loginPage'
+
 
 const RegisterForm = ({ onClose }) => {
 	const [showForm, setShowForm] = useState(true)

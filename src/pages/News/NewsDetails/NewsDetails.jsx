@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { CiCalendarDate } from "react-icons/ci";
-import { FaFacebook } from "react-icons/fa";
-import { FaWhatsapp } from "react-icons/fa";
 import { format } from "date-fns";
 import { ru } from "date-fns/locale";
 import "./newsDetails.scss";
