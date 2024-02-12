@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../../layout/Header/header.scss'
 
-
 const HeaderNav = () => {
 	return (
 		<nav className='header__nav'>
