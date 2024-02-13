@@ -4,7 +4,7 @@ import './CalculatorServices.scss';
 import SetkaTS from '../../../assets/img/setkaKR.png';
 
 const CalculatorServices = () => {
-    const [carType, setCarType] = useState('');
+    const [carType, setCarType] = useState('Легковое');
     const [engineVolume, setEngineVolume] = useState('');
     const [year, setYear] = useState('');
     const [engineType, setEngineType] = useState('');

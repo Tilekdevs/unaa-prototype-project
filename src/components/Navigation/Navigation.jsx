@@ -1,4 +1,5 @@
 import React from "react";
+import Breadcrumbs from '@mui/material/Breadcrumbs';
 import { Link, useLocation } from "react-router-dom";
 import navigationData from "../../utils/navigationData";
 import "./navigation.scss";
@@ -10,15 +11,14 @@ const Navigation = () => {
   return (
     <div className="navigation">
       <div className="navigation__container">
-        <Link className="navigation__link" to={"/"}>
-          Главная {'/ '}
-        </Link>
-
-        {currentPath.map((segment, index) => (
-          <span key={index}>
-            {'  '}
-            {'  '}
+        <Breadcrumbs aria-label="breadcrumb">
+          <Link className="navigation__link" to={"/"}>
+            Главная
+          </Link>
+  
+          {currentPath.map((segment, index) => (
             <Link
+              key={index}
               className={`navigation__link ${index === currentPath.length - 1 ? 'active' : ''}`}
               to={`/${index === currentPath.length - 1 ? '' : segment}`}
             >
@@ -27,11 +27,12 @@ const Navigation = () => {
                 : navigationData.find(item => item.en === segment)?.ru || segment
               }
             </Link>
-          </span>
-        ))}
+          ))}
+        </Breadcrumbs>
       </div>
     </div>
   );
+  
 };
 
 export default Navigation;

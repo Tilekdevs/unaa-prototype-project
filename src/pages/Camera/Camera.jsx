@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./camera.scss";
-import img from "../../assets/img/test.jpg";
+// import img from "../../assets/img/test.jpg";
 
 // const StreamImageCard = ({ currentStreamId }) => (
 //   <div className='video'>
@@ -51,7 +51,7 @@ const StreamTableCard = ({ streams, changeStreamImage, currentStreamId }) => (
 
 const Camera = () => {
   const [streams, setStreams] = useState([]);
-  const [currentStreamId, setCurrentStreamId] = useState(null);
+  const [currentStreamId, setCurrentStreamId] = useState(1);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
