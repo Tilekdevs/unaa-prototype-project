@@ -4,6 +4,8 @@ import PopupState, { bindMenu, bindTrigger } from 'material-ui-popup-state'
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 import './Services.scss'
+import { FaCaretDown } from 'react-icons/fa'
+import { Flex } from '@chakra-ui/react'
 
 export default function Services() {
 	return (
@@ -18,9 +20,12 @@ export default function Services() {
 								padding: '10px',
 								cursor: 'pointer',
 								textDecoration: 'none',
+								display: 'flex',
+								alignItems: 'center',
 							}}
 						>
 							Сервисы
+							<FaCaretDown />
 						</a>
 						<Menu {...bindMenu(popupState)}>
 							<MenuItem onClick={popupState.close}>
