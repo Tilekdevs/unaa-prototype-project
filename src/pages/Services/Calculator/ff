@@ -1,0 +1,63 @@
+return (
+        <div className='MainCalculatorContainer'>
+            <h2>Калькулятор оформления ТС</h2>
+            <div className='VehicleRegistration'>
+                <div>
+                    <label htmlFor='carType'>Тип автомобиля:</label>
+                    <select id='carType' onChange={(e) => setCarType(e.target.value)}>
+                        <option value=''>Выберите тип автомобиля</option>
+                        {carTypes.map((type) => (
+                            <option key={type.id} value={type.carType}>
+                                {type.carType}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <div>
+					<label htmlFor='engineVolume'>Объем двигателя:</label>
+					<select
+						id='engineVolume'
+						onChange={e => setEngineVolume(e.target.value)}
+					>
+						<option value=''>Выберите объем</option>
+						{Object.keys(tariffsForCars).map(volume => (
+							<option key={volume} value={volume}>
+								{volume}
+							</option>
+						))}
+					</select>
+				</div>
+				<div>
+					<label htmlFor='year'>Год выпуска:</label>
+					<select id='year' onChange={e => setYear(e.target.value)}>
+						<option value=''>Выберите год</option>
+						<option value='2023'>2023</option>
+					</select>
+				</div>
+				<div>
+					<label htmlFor='engineType'>Тип двигателя:</label>
+					<select id='engineType' onChange={e => setEngineType(e.target.value)}>
+						<option value=''>Выберите тип двигателя</option>
+						<option value='Бензин / Дизель / Газ'>{engineVolume}</option>
+					</select>
+				</div>
+				<div>
+					<label htmlFor='status'>Статус:</label>
+					<select id='status' onChange={e => setStatus(e.target.value)}>
+						<option value=''>Выберите статус</option>
+						<option value='Первичное'>Первичное</option>
+					</select>
+				</div>
+			</div>
+			<button onClick={calculateInsurance} style={{ marginTop: '10px' }}>
+				Рассчитать страховку
+			</button>
+			<div style={{ marginTop: '20px' }}>
+				<h3>Стоимость страховки:</h3>
+				<p>
+					{insuranceCost} <a href={SetkaTS}>см. по сетке</a>
+				</p>
+			</div>
+		</div>
+    );
+};
