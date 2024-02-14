@@ -10,6 +10,7 @@ import NewsDetails from './pages/News/NewsDetails/NewsDetails'
 import CalculatorServices from './pages/Services/Calculator/CalculatorServices'
 import RequestInspection from './pages/Services/RequestForInspection/RequestInspection.jsx'
 import NotFound from './pages/NotFound/NotFound'
+import Search from './pages/Search/Search.jsx'
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 					<Route path={'/news'} element={<News />} />
 					<Route path={'/news/:id'} element={<NewsDetails />} />
 					<Route path={'/calculator'} element={<CalculatorServices />} />
+					<Route path={'/search'} element={<Search />} />
 					<Route
 						path={'/request-for-inspection'}
 						element={<RequestInspection />}

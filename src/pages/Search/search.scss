@@ -1,0 +1,46 @@
+.search {
+    width: 100%;
+    &__title{
+        margin: 50px 135px;
+    }
+    &__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; 
+      margin: 30px 0;
+      gap: 20px;
+    }
+  
+    &__card {
+      width: 1250px;
+      border: 2px solid #e5e5e5;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+  
+      &-link {
+        color: #4285f4;
+        font-size: 17px;
+        text-align: end;
+        text-decoration: none;
+      }
+  
+      &-date {
+        color: gray;
+      }
+    }
+    &__notfound{
+        margin: 0 auto;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &-title{
+            font-size: 40px;
+            text-align: center;
+        }
+    }
+  }
+  
