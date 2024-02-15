@@ -104,7 +104,7 @@ class CalculatorServices extends Component {
 
 		return (
 			<div className='MainCalculatorContainer'>
-				<h2>Calculator Services</h2>
+				<h2>Калькулятор оформления ТС</h2>
 				<div className='VehicleRegistration'>
 					<div>
 						<label>Тип авто:</label>

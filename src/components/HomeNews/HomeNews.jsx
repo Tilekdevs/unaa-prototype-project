@@ -3,6 +3,8 @@ import axios from 'axios';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import { useNavigate } from 'react-router-dom';
+// import Pagination from '@mui/material/Pagination';
+// import Stack from '@mui/material/Stack';
 import '../../pages/Home/home.scss'
 
 const HomeNews = () => {
@@ -43,6 +45,9 @@ const HomeNews = () => {
               </div>
             </div>
           ))}
+          {/* <Stack spacing={2}>
+            <Pagination count={10} variant="outlined" shape="rounded" />
+          </Stack> */}
         </div>
       }
     </section>
