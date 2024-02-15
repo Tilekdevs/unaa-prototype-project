@@ -10,7 +10,8 @@ import Home from './pages/Home/Home'
 import Jobs from './pages/Jobs/Jobs'
 import News from './pages/News/News'
 import NewsDetails from './pages/News/NewsDetails/NewsDetails'
-import NotFound from './pages/NotFound/NotFound' // Use 'NotFound' instead of 'notFound'
+import NotFound from './pages/NotFound/NotFound'
+import Information from './pages/Information/Information.jsx'
 import CalculatorServices from './pages/Services/Calculator/CalculatorServices'
 import RequestInspection from './pages/Services/RequestForInspection/RequestInspection.jsx'
 import Search from './pages/Search/Search.jsx'
@@ -25,6 +26,7 @@ function App() {
 					<Route path={'/news'} element={<News />} />
 					<Route path={'/news/:id'} element={<NewsDetails />} />
 					<Route path={'/calculator'} element={<CalculatorServices />} />
+					<Route path={'/information'} element={<Information/>} />
 					<Route path={'/search'} element={<Search />} />
 					<Route
 						path={'/request-for-inspection'}
@@ -32,8 +34,7 @@ function App() {
 					/>
 					<Route path={'/camera'} element={<Camera />} />
 					<Route path={'/jobs'} element={<Jobs />} />
-					<Route path={'*'} element={<NotFound />} />{' '}
-					{/* Use 'NotFound' here */}
+					<Route path={'*'} element={<NotFound />} />
 				</Route>
 			</Routes>
 		</div>
