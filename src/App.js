@@ -34,7 +34,11 @@ function App() {
 					/>
 					<Route path={'/camera'} element={<Camera />} />
 					<Route path={'/jobs'} element={<Jobs />} />
+<<<<<<< Updated upstream
 					<Route path={'*'} element={<NotFound />} />
+=======
+					<Route path={'*'} element={<NotFound />} />{' '}
+>>>>>>> Stashed changes
 				</Route>
 			</Routes>
 		</div>

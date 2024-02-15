@@ -36,32 +36,23 @@ const Footer = () => {
 
       <footer className="footer">
         <div className="footer__container">
-          {/* <div className="footer__about">
-            <h3 className="footer__about-title">
-              Государственное учреждение УНАА
-            </h3>
-            <p className="footer__about-desc">
-              Государственное учреждение "УНАА" осуществляет деятельность в
-              области регистрации, перерегистрации автомототранспортных средств.
-            </p>
-          </div> */}
-
+          
           <div className="footer__links">
             <h3 className="footer__links-title">Государственные структуры</h3>
 
-            <a href="/" className="footer__link">
+            <a href="https://president.kg/" className="footer__link">
               Сайт Президента КР
             </a>
-            <a href="/" className="footer__link">
+            <a href="https://kenesh.kg/ru" className="footer__link">
               Жогорку Кенеш
             </a>
-            <a href="/" className="footer__link">
+            <a href="https://portal.tunduk.kg/" className="footer__link">
               Портал электронных услуг
             </a>
             <a href="/" className="footer__link">
               Государственная регистрационная служба
             </a>
-            <a href="/" className="footer__link">
+            <a href="https://tunduk.gov.kg/ru" className="footer__link">
               Система «ТҮНДҮК»
             </a>
           </div>
@@ -72,22 +63,19 @@ const Footer = () => {
             <a href="/" className="footer__link">
               Главная
             </a>
-            <a href="/" className="footer__link">
+            <a href="/about" className="footer__link">
               О нас
             </a>
-            <a href="/" className="footer__link">
+            <a href="/news" className="footer__link">
               Новости
             </a>
-            <a href="/" className="footer__link">
-              Сервисы
-            </a>
-            <a href="/" className="footer__link">
+            <a href="/information" className="footer__link">
               Информация
             </a>
-            <a href="/" className="footer__link">
+            <a href="/jobs" className="footer__link">
               Вакансии
             </a>
-            <a href="/" className="footer__link">
+            <a href="/camera" className="footer__link">
               Онлайн камеры
             </a>
           </div>

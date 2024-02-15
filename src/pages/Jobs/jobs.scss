@@ -2,15 +2,16 @@
 	width: 100%;
 
 	&__container {
-		max-width: 100%;
-		margin: 30px 30px 30px 90px;
+		width: calc(100% - 150px); 
+		margin: 30px auto; 
 		display: flex;
 		flex-wrap: wrap;
 		gap: 25px;
+    	justify-content: flex-start; 
 	}
 
 	&__card {
-		width: 30%;
+		width: 400px;
 		border-radius: 5px;
 		padding: 20px;
 		display: flex;
@@ -32,11 +33,5 @@
 		font-size: 16px;
 		cursor: pointer;
 		border-radius: 5px;
-	}
-
-	@media screen and (max-width: 768px) {
-		&__card {
-			width: 100%;
-		}
 	}
 }
