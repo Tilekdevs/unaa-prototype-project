@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./jobs.scss";
 import Navigation from "../../components/Navigation/Navigation";
+import CustomModalOverlay from "../../components/CustomModalOverlay/CustomModalOverlay";
 
 const Jobs = () => {
   const [jobsData, setJobsData] = useState([]);
+  const [isOpen, setIsOpen] = useState(false); 
+  const [selectedJob, setSelectedJob] = useState(null); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,9 +19,18 @@ const Jobs = () => {
       }
     };
 
-    
     fetchData();
   }, []);
+
+  const openModal = (job) => { 
+    setIsOpen(true);
+    setSelectedJob(job);
+  };
+
+  const closeModal = () => { 
+    setIsOpen(false);
+    setSelectedJob(null);
+  };
 
   return (
     <section className="jobs">
@@ -28,11 +40,14 @@ const Jobs = () => {
           <div className="jobs__card" key={job.id}>
             <h3 className="jobs__title">{job.title}</h3>
             <p className="jobs__city">{job.city}</p>
-            <p className="jobs__nots">{job.note}</p>
-            <button className="jobs__btn">Откликнуться</button>
+            <p className="jobs__notes">{job.note}</p>
+            <button onClick={() => openModal(job)} className="jobs__btn">Откликнуться</button>
           </div>
         ))}
       </div>
+      {isOpen && (
+        <CustomModalOverlay job={selectedJob} closeModal={closeModal} />
+      )}
     </section>
   );
 };

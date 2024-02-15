@@ -23,21 +23,20 @@
 	}
 
 	&__btn {
-		width: 110px;
+		width: 140px;
 		height: 40px;
 		background-color: #1e88e5;
 		border: none;
 		color: #ffffff;
-		font-family: 'Roboto' sans-serif;
-		font-size: 14px;
+		font-family: 'Onest', sans-serif;
+		font-size: 16px;
 		cursor: pointer;
-		
+		border-radius: 5px;
 	}
 
-	/* Адаптивные стили для ширин экрана меньше 768px */
 	@media screen and (max-width: 768px) {
 		&__card {
-			width: 100%; /* Изменяем ширину карточки на 100% при маленьком экране */
+			width: 100%;
 		}
 	}
 }

@@ -1,23 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import axios from "axios";
 import "./camera.scss";
-// import img from "../../assets/img/test.jpg";
-
-// const StreamImageCard = ({ currentStreamId }) => (
-//   <div className='video'>
-//     <div className='video__content'>
-//       {currentStreamId && (
-//         <img
-//           id="streamImage"
-//           className="img-rounded"
-//           style={{ maxWidth: '100%' }}
-//           src={`http://127.0.0.1:8000/api/streams/${currentStreamId}`}
-//           alt="Stream"
-//         />
-//       )}
-//     </div>
-//   </div>
-// );
 
 const StreamImageCard = ({ currentStreamId }) => (
   <div className="video">
@@ -47,7 +30,6 @@ const StreamTableCard = ({ streams, changeStreamImage, currentStreamId }) => (
     </div>
   </div>
 );
-
 
 const Camera = () => {
   const [streams, setStreams] = useState([]);
@@ -84,21 +66,25 @@ const Camera = () => {
         }
       }
     };
-
+ 
     fetchStreamImage();
   }, [currentStreamId]);
+
+  const memoizedStreams = useMemo(() => streams, [streams]);
+  const memoizedLoading = useMemo(() => loading, [loading]);
+  const changeStreamImage = useCallback((id) => setCurrentStreamId(id), []);
 
   return (
     <div className="camera">
       <div className="camera__container">
-        {loading ? (
+        {memoizedLoading ? (
           <p>Loading...</p>
         ) : (
           <>
             <StreamImageCard currentStreamId={currentStreamId} />
             <StreamTableCard
-              streams={streams}
-              changeStreamImage={setCurrentStreamId}
+              streams={memoizedStreams}
+              changeStreamImage={changeStreamImage}
               currentStreamId={currentStreamId}
             />
           </>

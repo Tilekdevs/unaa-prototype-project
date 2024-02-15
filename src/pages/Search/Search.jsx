@@ -18,7 +18,7 @@ const formatDate = (dateString) => {
 };
 
 const Search = () => {
-  const location = useLocation();
+  const location = useLocation(); 
   const { state } = location;
 
   if (!state || !state.results || state.results.length === 0) {
@@ -68,13 +68,10 @@ const Search = () => {
                 <p className="search__card-text">{item.description}</p>
               </>
             )}
-            {/* Добавление категории */}
             {item.city && <p className="search__card-category">Категория: Вакансии</p>}
             {item.time_job && <p className="search__card-category">Категория: Контакты</p>}
             {item.published_date && <p className="search__card-category">Категория: Новости</p>}
             {item.avatar && <p className="search__card-category">Категория: Руководство</p>}
-
-            {/* Добавьте обработку других категорий */}
           </div>
         ))}
       </div>
