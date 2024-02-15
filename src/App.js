@@ -1,3 +1,6 @@
+// Remove the import for 'notFound'
+// import notFound from './pages/NotFound/NotFound.jsx';
+
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Layout from './layout/Layout'
@@ -7,9 +10,10 @@ import Home from './pages/Home/Home'
 import Jobs from './pages/Jobs/Jobs'
 import News from './pages/News/News'
 import NewsDetails from './pages/News/NewsDetails/NewsDetails'
-import NotFound from './pages/NotFound/NotFound'
+import NotFound from './pages/NotFound/NotFound' // Use 'NotFound' instead of 'notFound'
 import CalculatorServices from './pages/Services/Calculator/CalculatorServices'
 import RequestInspection from './pages/Services/RequestForInspection/RequestInspection.jsx'
+import Search from './pages/Search/Search.jsx'
 
 function App() {
 	return (
@@ -21,13 +25,15 @@ function App() {
 					<Route path={'/news'} element={<News />} />
 					<Route path={'/news/:id'} element={<NewsDetails />} />
 					<Route path={'/calculator'} element={<CalculatorServices />} />
+					<Route path={'/search'} element={<Search />} />
 					<Route
 						path={'/request-for-inspection'}
 						element={<RequestInspection />}
 					/>
 					<Route path={'/camera'} element={<Camera />} />
 					<Route path={'/jobs'} element={<Jobs />} />
-					<Route path={'*'} element={<NotFound />} />
+					<Route path={'*'} element={<NotFound />} />{' '}
+					{/* Use 'NotFound' here */}
 				</Route>
 			</Routes>
 		</div>

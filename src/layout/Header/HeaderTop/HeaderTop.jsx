@@ -1,53 +1,54 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Fuse from "fuse.js";
 import axios from "axios";
-import CustomModal from "../../../components/CustomModal/CustomModal";
+import { useNavigate } from "react-router-dom"; 
 import { FaSearch } from "react-icons/fa";
 import whatsapp from "../../../assets/img/whatsapp.png";
 import facebook from "../../../assets/img/facebook.png";
 
 const HeaderTop = () => {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
-  const [data, setData] = useState([]);
-  const [showModal, setShowModal] = useState(false);
+  const [allData, setAllData] = useState([]);
+  const navigate = useNavigate();
+
+  const fetchData = async () => {
+    try {
+      const urls = [
+        'http://127.0.0.1:8000/api/news',
+        'http://127.0.0.1:8000/api/job/jobs',
+        'http://127.0.0.1:8000/api/about/contact',
+        'http://127.0.0.1:8000/api/about/management'
+      ];
+      const requests = urls.map(url => axios.get(url));
+      const responses = await axios.all(requests);
+      const data = responses.map(response => response.data);
+      setAllData(data.flat());
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
-    axios
-      .get("http://127.0.0.1:8000/api/news")
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
+    fetchData();
   }, []);
 
-  useEffect(() => {
-    const fuseOptions = {
-      keys: ["title", "text", "published_date"],
-      includeScore: true,
-      threshold: 0.4,
-    };
-
-    const fuse = new Fuse(data, fuseOptions);
-
-    const searchResults = fuse.search(query);
-    const filteredResults = searchResults.map((result) => result.item);
-    setResults(filteredResults);
-  }, [query, data]);
+  const fuseOptions = useMemo(() => ({
+    keys: ["title", "text", "published_date", "city", "note", "address", "phone", "time_job", "name", "description", "avatar"], 
+    includeScore: true,
+    threshold: 0.4,
+  }), []);
 
   const handleSearch = () => {
-    setShowModal(true);
+    if (query.trim() !== "") {
+      const fuse = new Fuse(allData, fuseOptions);
+      const searchResults = fuse.search(query);
+      const filteredResults = searchResults.map((result) => result.item);
+      navigate(`/search?query=${query}`, { state: { results: filteredResults } });
+    }
   };
-
+  
   const handleQueryChange = (e) => {
     setQuery(e.target.value);
-    setShowModal(false);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
   };
 
   return (
@@ -64,14 +65,8 @@ const HeaderTop = () => {
           className="header__top-input"
         />
         <FaSearch onClick={handleSearch} className="header__top-icon" />
-
-        <CustomModal
-          open={showModal}
-          handleClose={handleCloseModal}
-          results={results}
-        />
       </div>
-    </div>
+    </div>    
   );
 };
 
