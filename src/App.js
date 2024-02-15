@@ -7,9 +7,9 @@ import Home from './pages/Home/Home'
 import Jobs from './pages/Jobs/Jobs'
 import News from './pages/News/News'
 import NewsDetails from './pages/News/NewsDetails/NewsDetails'
+import NotFound from './pages/NotFound/NotFound'
 import CalculatorServices from './pages/Services/Calculator/CalculatorServices'
 import RequestInspection from './pages/Services/RequestForInspection/RequestInspection.jsx'
-import NotFound from './pages/NotFound/NotFound'
 
 function App() {
 	return (

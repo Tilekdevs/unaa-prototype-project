@@ -3,11 +3,12 @@ import MenuItem from '@mui/material/MenuItem'
 import PopupState, { bindMenu, bindTrigger } from 'material-ui-popup-state'
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import './Services.scss'
 import { FaCaretDown } from 'react-icons/fa'
-import { Flex } from '@chakra-ui/react'
+import './Services.scss'
 
 export default function Services() {
+	const [isHovered, setIsHovered] = React.useState(false)
+
 	return (
 		<div className='MainServicesContainer'>
 			<PopupState variant='popover' popupId='demo-popup-menu'>
@@ -16,6 +17,9 @@ export default function Services() {
 						<a
 							variant='contained'
 							{...bindTrigger(popupState)}
+							className={`services-link ${isHovered ? 'hovered' : ''}`}
+							onMouseEnter={() => setIsHovered(true)}
+							onMouseLeave={() => setIsHovered(false)}
 							style={{
 								padding: '10px',
 								cursor: 'pointer',
