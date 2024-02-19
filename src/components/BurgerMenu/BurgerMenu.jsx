@@ -1,5 +1,3 @@
-// BurgerMenu.js
-
 import React, { useState } from 'react'
 import { slide as Menu } from 'react-burger-menu'
 import { IoMdClose } from 'react-icons/io'

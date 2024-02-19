@@ -1,3 +1,4 @@
+// Jobs.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./jobs.scss";
@@ -6,8 +7,7 @@ import CustomModalOverlay from "../../components/CustomModalOverlay/CustomModalO
 
 const Jobs = () => {
   const [jobsData, setJobsData] = useState([]);
-  const [isOpen, setIsOpen] = useState(false); 
-  const [selectedJob, setSelectedJob] = useState(null); 
+  const [selectedJob, setSelectedJob] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,13 +22,11 @@ const Jobs = () => {
     fetchData();
   }, []);
 
-  const openModal = (job) => { 
-    setIsOpen(true);
+  const openModal = (job) => {
     setSelectedJob(job);
   };
 
-  const closeModal = () => { 
-    setIsOpen(false);
+  const closeModal = () => {
     setSelectedJob(null);
   };
 
@@ -45,7 +43,7 @@ const Jobs = () => {
           </div>
         ))}
       </div>
-      {isOpen && (
+      {selectedJob && (
         <CustomModalOverlay job={selectedJob} closeModal={closeModal} />
       )}
     </section>

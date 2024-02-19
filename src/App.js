@@ -1,6 +1,3 @@
-// Remove the import for 'notFound'
-// import notFound from './pages/NotFound/NotFound.jsx';
-
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Layout from './layout/Layout'

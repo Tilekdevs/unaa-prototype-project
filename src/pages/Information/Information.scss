@@ -1,24 +1,32 @@
-/* Information.scss */
-.MainInformationContainer {
+.information {
 	padding: 20px;
-}
-
-.container {
-	max-width: 800px;
-	margin: 0 auto;
-	display: flex;
-	justify-content: center;
+	&__container{
+		max-width: 900px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: center;
+		gap: 50px;
+		flex-direction: column;
+	}
+	&__title{
+		font-size: 27px;
+		text-align: center;
+		margin-top: 20px;
+	}
+	&__table{
+		width: 100%;
+	    border-collapse: collapse;
+	    margin-top: 10px;
+		&-title{
+			text-align: center;
+			padding: 20px 0;
+		}
+	}
 }
 
 h1,
 h2 {
 	color: #333;
-}
-
-table {
-	width: 100%;
-	border-collapse: collapse;
-	margin-top: 10px;
 }
 
 th,
@@ -29,5 +37,5 @@ td {
 }
 
 th {
-	background-color: #f2f2f2;
+	background-color: #ccc;
 }
