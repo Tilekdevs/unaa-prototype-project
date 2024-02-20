@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./header.scss";
 import logo from "../../assets/img/header-logо.jpg";
 import { FaArrowDown } from "react-icons/fa";
+import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
 
 const Header = () => {
   const location = useLocation();
@@ -46,6 +47,9 @@ const Header = () => {
             <Link to="/about">О нас</Link>
           </li>
           <li className="header__navigation-item">
+            <Link to="/news">Новости</Link>
+          </li>
+          <li className="header__navigation-item">
             <Link to="/information">Информация</Link>
           </li>
           <li className="header__navigation-item">
@@ -67,6 +71,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
+      <BurgerMenu />
     </header>
   );
 };

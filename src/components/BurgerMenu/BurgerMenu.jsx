@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { slide as Menu } from 'react-burger-menu'
 import { IoMdClose } from 'react-icons/io'
-import { HiMenuAlt3 } from 'react-icons/hi'
+import { RiMenu3Line } from "react-icons/ri";
 import { Link } from 'react-router-dom'
 import RegisterForm from '../RegisterForm/RegisterForm'
 import './burgerMenu.scss'
@@ -32,7 +32,7 @@ const BurgerMenu = () => {
 	return (
 		<div className='burger-menu'>
 			<div className='burger-icon' onClick={toggleMenu}>
-				<HiMenuAlt3 />
+				<RiMenu3Line color='#ffffff' />
 			</div>
 
 			{isMenuOpen && <div className='overlay' onClick={closeMenu}></div>}

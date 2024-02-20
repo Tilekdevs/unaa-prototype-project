@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import "./home.scss";
-import videobg from "../../assets/video/video.mp4";
+import videobg from "../../assets/video/bg.mp4";
 
 const Home = () => {
   const videoRef = useRef(null);
@@ -59,7 +59,7 @@ const Home = () => {
         </div>
 
         <div className="home__bottom">
-          <h2>Дополнительный контент</h2>
+          <h2 className="home__bottom-title">Дополнительный контент</h2>
         </div>
       </div>
     </section>
