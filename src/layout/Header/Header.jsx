@@ -1,48 +1,73 @@
-import React from 'react';
-import './header.scss';
-import Logo from '../../assets/img/header-logо.jpg';
-import BurgerMenu from '../../components/BurgerMenu/BurgerMenu';
-import HeaderNav from '../../components/HeaderNav/HeaderNav';
-import HeaderTop from './HeaderTop/HeaderTop';
-import { FaRegUser } from 'react-icons/fa';
-import RegisterForm from '../../components/RegisterForm/RegisterForm';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import "./header.scss";
+import logo from "../../assets/img/header-logо.jpg";
+import { FaArrowDown } from "react-icons/fa";
 
 const Header = () => {
-  const [showForm, setShowForm] = React.useState(false);
+  const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
 
-  const openForm = () => {
-    setShowForm(true);
-    document.body.classList.add('dark-background');
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 90) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
 
-  const closeForm = () => {
-    setShowForm(false);
-    document.body.classList.remove('dark-background');
-  };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <>
-      <HeaderTop />
-      <header className={`header ${showForm ? 'dark-background' : ''}`}>
-        <div className="header__logo">
-          <img className="header__img" src={Logo} alt="Logo" />
-          <a className="header__title" href="/">
-            Государственное учреждение УНАА
-          </a>
-        </div>
+    <header
+      className={`header ${
+        scrolled || location.pathname !== "/" ? "scrolled" : ""
+      }`}
+    >
+      <div className="header__container-logo">
+        <img src={logo} alt="Logo" className="header__container-img" />
+        <h4 className="header__container-title">
+          Государственное учреждение УНАА
+        </h4>
+      </div>
 
-        <HeaderNav />
-
-        <div className="header__right">
-          <button className="header__btn" onClick={openForm}>
-            Войти <FaRegUser />
-          </button>
-          <BurgerMenu />
-        </div>
-      </header>
-
-      {showForm && <RegisterForm onClose={closeForm} />}
-    </>
+      <nav className="header__navigation">
+        <ul className="header__navigation-list">
+          <li className="header__navigation-item">
+            <Link to="/">Главная</Link>
+          </li>
+          <li className="header__navigation-item">
+            <Link to="/about">О нас</Link>
+          </li>
+          <li className="header__navigation-item">
+            <Link to="/information">Информация</Link>
+          </li>
+          <li className="header__navigation-item">
+            Сервисы <FaArrowDown />
+            <ul className="header__dropdown">
+              <li>
+                <Link to="/calculator">Калькулятор</Link>
+              </li>
+              <li>
+                <Link to="/request-for-inspection">Обращение на осмотр</Link>
+              </li>
+            </ul>
+          </li>
+          <li className="header__navigation-item">
+            <Link to="/jobs">Вакансии</Link>
+          </li>
+          <li className="header__navigation-item">
+            <Link to="/camera">Онлайн камеры</Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
   );
 };
 

@@ -1,8 +1,6 @@
-// Jobs.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./jobs.scss";
-import Navigation from "../../components/Navigation/Navigation";
 import CustomModalOverlay from "../../components/CustomModalOverlay/CustomModalOverlay";
 
 const Jobs = () => {
@@ -32,7 +30,6 @@ const Jobs = () => {
 
   return (
     <section className="jobs">
-      <Navigation />
       <div className="jobs__container">
         {jobsData.map((job) => (
           <div className="jobs__card" key={job.id}>

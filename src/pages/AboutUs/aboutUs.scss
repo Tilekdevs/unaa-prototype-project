@@ -2,7 +2,7 @@
 	display: flex;
 	position: relative;
 	justify-content: center;
-
+	margin: 150px 0;
 	@media (max-width: 768px) {
 		flex-direction: column; // Example adjustment for smaller screens
 	}
