@@ -3,14 +3,12 @@ import axios from 'axios';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import { useNavigate } from 'react-router-dom';
-// import Pagination from '@mui/material/Pagination';
-// import Stack from '@mui/material/Stack';
-import '../../pages/Home/home.scss'
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import '../../pages/Home/home.scss';
 
 const HomeNews = () => {
-
   const [news, setNews] = useState([]);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,25 +30,43 @@ const HomeNews = () => {
       
       {news.length > 0 &&
         <div className="home__news-container">
-          {news.slice(0,6).map((item) => (
-            <div className="home__news-card" key={item.id}>
-              <img 
-                className='home__news-img'
-                src={item.images.length > 0 ? `http://127.0.0.1:8000${item.images[0].image}` : null} 
-                alt="" 
-              />
-              <div className="home__news-info">
-                <p className="home__news-date">{format(new Date(item.published_date), 'd MMMM yyyy года', { locale: ru })}</p>
-                <h3 onClick={() => navigate(`/news/${item.id}`)} className="home__news-subtitle">{item.title}</h3>
-              </div>
-            </div>
+          {news.slice(0, 6).map((item, index) => (
+            <NewsCard key={item.id} item={item} index={index} navigate={navigate} />
           ))}
-          {/* <Stack spacing={2}>
-            <Pagination count={10} variant="outlined" shape="rounded" />
-          </Stack> */}
         </div>
       }
     </section>
+  );
+};
+
+const NewsCard = ({ item, index, navigate }) => {
+  const [ref, inView] = useInView();
+  const [animationPlayed, setAnimationPlayed] = useState(false);
+
+  useEffect(() => {
+    if (inView && !animationPlayed) { 
+      setAnimationPlayed(true);
+    }
+  }, [inView, animationPlayed]);
+
+  return (
+    <motion.div
+      ref={ref}
+      className="home__news-card"
+      initial={{ opacity: 0, y: 50 }}
+      animate={animationPlayed ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+    >
+      <img 
+        className='home__news-img'
+        src={item.images.length > 0 ? `http://127.0.0.1:8000${item.images[0].image}` : null} 
+        alt="" 
+      />
+      <div className="home__news-info">
+        <p className="home__news-date">{format(new Date(item.published_date), 'd MMMM yyyy года', { locale: ru })}</p>
+        <h3 onClick={() => navigate(`/news/${item.id}`)} className="home__news-subtitle">{item.title}</h3>
+      </div>
+    </motion.div>
   );
 };
 

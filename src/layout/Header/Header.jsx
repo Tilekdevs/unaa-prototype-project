@@ -32,10 +32,10 @@ const Header = () => {
       }`}
     >
       <div className="header__container-logo">
-        <img src={logo} alt="Logo" className="header__container-img" />
-        <h4 className="header__container-title">
+         <img src={logo} alt="Logo" className="header__container-img" />
+        {/* <h4 className="header__container-title">
           Государственное учреждение УНАА
-        </h4>
+        </h4>  */}
       </div>
 
       <nav className="header__navigation">

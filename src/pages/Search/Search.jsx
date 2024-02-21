@@ -18,7 +18,7 @@ const formatDate = (dateString) => {
 };
 
 const Search = () => {
-  const location = useLocation(); 
+  const location = useLocation();
   const { state } = location;
 
   if (!state || !state.results || state.results.length === 0) {
@@ -35,16 +35,22 @@ const Search = () => {
 
   return (
     <section className="search">
-      <h1 className="search__title">Результаты поиска</h1>
       <div className="search__container">
+        <h1 className="search__title">Результаты поиска</h1>
         {results.map((item, index) => (
           <div key={index} className="search__card">
             {item.published_date && (
               <>
                 <h2 className="search__card-title">{item.title}</h2>
-                <p className="search__card-date">{formatDate(item.published_date)}</p>
-                <p className="search__card-text">{truncateText(item.text, 60)}</p>
-                <Link to={`/news/${item.id}`} className="search__card-link">Подробнее</Link>
+                <p className="search__card-date">
+                  {formatDate(item.published_date)}
+                </p>
+                <p className="search__card-text">
+                  {truncateText(item.text, 60)}
+                </p>
+                <Link to={`/news/${item.id}`} className="search__card-link">
+                  Подробнее
+                </Link>
               </>
             )}
             {item.city && (
@@ -68,10 +74,18 @@ const Search = () => {
                 <p className="search__card-text">{item.description}</p>
               </>
             )}
-            {item.city && <p className="search__card-category">Категория: Вакансии</p>}
-            {item.time_job && <p className="search__card-category">Категория: Контакты</p>}
-            {item.published_date && <p className="search__card-category">Категория: Новости</p>}
-            {item.avatar && <p className="search__card-category">Категория: Руководство</p>}
+            {item.city && (
+              <p className="search__card-category">Категория: Вакансии</p>
+            )}
+            {item.time_job && (
+              <p className="search__card-category">Категория: Контакты</p>
+            )}
+            {item.published_date && (
+              <p className="search__card-category">Категория: Новости</p>
+            )}
+            {item.avatar && (
+              <p className="search__card-category">Категория: Руководство</p>
+            )}
           </div>
         ))}
       </div>
@@ -80,4 +94,3 @@ const Search = () => {
 };
 
 export default Search;
-

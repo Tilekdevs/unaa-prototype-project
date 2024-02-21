@@ -1,16 +1,16 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import "./camera.scss";
 
-const StreamImageCard = ({ currentStreamId }) => (
+const StreamImageCard = ({ streamImage }) => (
   <div className="video">
     <div className="video__content">
-      {currentStreamId && (
+      {streamImage && (
         <img
           id="streamImage"
           className="img-rounded"
           style={{ maxWidth: "100%" }}
-          src={`http://127.0.0.1:8000/api/streams/${currentStreamId}`}
+          src={streamImage}
           alt="Stream"
         />
       )}
@@ -18,12 +18,12 @@ const StreamImageCard = ({ currentStreamId }) => (
   </div>
 );
 
-const StreamTableCard = ({ streams, changeStreamImage, currentStreamId }) => (
+const StreamTableCard = ({ streams, changeStreamImage }) => (
   <div className="camera__title">
     <div className="camera__title-container">
       {streams.map((stream) => (
         <div key={stream.id} className="camera__title-block">
-          <img src={`http://127.0.0.1:8000/api/streams/${currentStreamId}`} alt="" className="camera__title-img" />
+          <img src={stream.image} alt="" className="camera__title-img" />
           <p onClick={() => changeStreamImage(stream.id)} className="camera__title-subtitle">{stream.title}</p>
         </div>
       ))}
@@ -51,41 +51,22 @@ const Camera = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const fetchStreamImage = async () => {
-      if (currentStreamId !== null) {
-        try {
-          setLoading(true);
-          await axios.get(
-            `http://127.0.0.1:8000/api/streams/${currentStreamId}`
-          );
-        } catch (error) {
-          console.error("Error fetching stream:", error.message);
-        } finally {
-          setLoading(false);
-        }
-      }
-    };
- 
-    fetchStreamImage();
-  }, [currentStreamId]);
-
-  const memoizedStreams = useMemo(() => streams, [streams]);
-  const memoizedLoading = useMemo(() => loading, [loading]);
   const changeStreamImage = useCallback((id) => setCurrentStreamId(id), []);
+
+  const currentStream = streams.find(stream => stream.id === currentStreamId);
+  const streamImage = currentStream ? `http://127.0.0.1:8000/api/streams/${currentStreamId}` : null;
 
   return (
     <div className="camera">
       <div className="camera__container">
-        {memoizedLoading ? (
+        {loading ? (
           <p>Loading...</p>
         ) : (
           <>
-            <StreamImageCard currentStreamId={currentStreamId} />
+            <StreamImageCard streamImage={streamImage} />
             <StreamTableCard
-              streams={memoizedStreams}
+              streams={streams}
               changeStreamImage={changeStreamImage}
-              currentStreamId={currentStreamId}
             />
           </>
         )}
