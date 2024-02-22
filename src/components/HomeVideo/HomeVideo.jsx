@@ -71,6 +71,12 @@ const HomeVideo = () => {
     setQuery(e.target.value);
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <>
       <div className="home__video-bg">
@@ -97,7 +103,9 @@ const HomeVideo = () => {
           <input
             value={query}
             onChange={handleQueryChange}
+            onKeyPress={handleKeyPress} 
             className="home__bottom-input"
+            placeholder="Поиск"
           />
           <FaSearch onClick={handleSearch} className="home__bottom-icon" />
         </div>

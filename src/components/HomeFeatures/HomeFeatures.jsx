@@ -65,8 +65,6 @@ const HomeFeatures = () => {
               Наше агенство предостовляет вам возможность получить выписку по
               ТС, проверить штрафы, узнать владельца ТС и др.
             </p>
-
-            <button className="button">Get started</button>
           </div>
           <div className="wrapper__right">{items}</div>
         </div>

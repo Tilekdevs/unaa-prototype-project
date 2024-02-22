@@ -34,7 +34,7 @@
     font-size: 18px;
   } 
   &__navigation {
-    .header__navigation-list {
+    &-list {
       display: flex;
       list-style-type: none;
       gap: 30px;
@@ -42,7 +42,7 @@
       cursor: pointer;
     }
 
-    .header__navigation-item {
+    &-item {
       color: #ffffff;
       cursor: pointer;
       font-size: 18px;
@@ -93,6 +93,17 @@
         visibility: visible;
       }
     }
+    &-select{
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 18px;
+      font-family: 'Onest', sans-serif;
+      width: 60px;
+    }
+    &-option{
+      background: #171717;
+    }
   }
 }
 
@@ -103,6 +114,9 @@
 @media screen and (max-width:1276px) {
   .header__navigation{
     display: none;
-  }
-  
+  }  
 }
+
+
+
+  

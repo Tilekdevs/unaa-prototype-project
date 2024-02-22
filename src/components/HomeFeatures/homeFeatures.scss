@@ -77,3 +77,28 @@
 .description {
   color: #666;
 }
+
+@media screen and (max-width:940px) {
+ .wrapper__container{
+  flex-direction: column;
+  margin: 0 auto;
+ }
+ .wrapper__left{
+  align-items: center;
+  width: 100%;
+ }
+ .wrapper__right{
+  align-items: center;
+  width: 100%;
+ }
+ .head{
+  text-align: center;
+ }
+ .text{
+  text-align: center;
+ }
+ .feature{
+  width: 320px;
+  height: 202px;
+ }
+}
