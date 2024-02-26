@@ -1,46 +1,47 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaArrowDown } from 'react-icons/fa'; 
-import '../../layout/Header/header.scss';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../../layout/Header/header.scss";
+import LanguageSelect from "../LanguageSelect/LanguageSelect";
+import { useTranslation } from "react-i18next";
 
 const HeaderNav = () => {
+
+  const {t} = useTranslation();
+
   return (
     <nav className="header__navigation">
       <ul className="header__navigation-list">
         <li className="header__navigation-item">
-          <Link to="/">Главная</Link>
+          <Link to="/">{t("home")}</Link>
         </li>
         <li className="header__navigation-item">
-          <Link to="/about">О нас</Link>
+          <Link to="/about">{t("about")}</Link>
         </li>
         <li className="header__navigation-item">
-          <Link to="/news">Новости</Link>
+          <Link to="/news">{t("news")}</Link>
         </li>
         <li className="header__navigation-item">
-          <Link to="/information">Информация</Link>
+          <Link to="/information">{t("info")}</Link>
         </li>
         <li className="header__navigation-item">
-          Сервисы <FaArrowDown />
+        {t("service.main")} 
           <ul className="header__dropdown">
             <li>
-              <Link to="/calculator">Калькулятор</Link>
+              <Link to="/calculator">{t("service.calculator")} </Link>
             </li>
             <li>
-              <Link to="/request-for-inspection">Обращение на осмотр</Link>
+              <Link to="/request-for-inspection">{t("service.inspection")} </Link>
             </li>
           </ul>
         </li>
         <li className="header__navigation-item">
-          <Link to="/jobs">Вакансии</Link>
+          <Link to="/jobs">{t("jobs")}</Link>
         </li>
         <li className="header__navigation-item">
-          <Link to="/camera">Онлайн камеры</Link>
+          <Link to="/camera">{t("camera")}</Link>
         </li>
-		<li className="header__navigation-item">
-          <select className='header__navigation-select' name="" id="">
-			<option className='header__navigation-option' value="">РУС</option>
-			<option className='header__navigation-option' value="">КЫР</option>
-		  </select>
+        <li className="header__navigation-item">
+          <LanguageSelect />
         </li>
       </ul>
     </nav>

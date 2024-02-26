@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./header.scss";
 import logo from "../../assets/img/header-logо.jpg";
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
@@ -8,6 +8,8 @@ import HeaderNav from "../../components/HeaderNav/HeaderNav";
 const Header = () => {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +34,7 @@ const Header = () => {
       }`}
     >
       <div className="header__container-logo">
-        <img src={logo} alt="Logo" className="header__container-img" />
+        <img onClick={() => navigate('/')} src={logo} alt="Logo" className="header__container-img" />
       </div>
 
       <HeaderNav />

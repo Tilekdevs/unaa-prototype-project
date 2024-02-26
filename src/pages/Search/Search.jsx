@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { format } from "date-fns";
 import { ru } from "date-fns/locale";
+import { useTranslation } from "react-i18next";
 import "./search.scss";
 
 const truncateText = (text, wordCount) => {
@@ -20,13 +21,12 @@ const formatDate = (dateString) => {
 const Search = () => {
   const location = useLocation();
   const { state } = location;
+  const { t } = useTranslation();
 
   if (!state || !state.results || state.results.length === 0) {
     return (
       <div className="search__notfound">
-        <h1 className="search__notfound-title">
-          По вашему запросу ничего не найдено
-        </h1>
+        <h1 className="search__notfound-title">{t("notfound")}</h1>
       </div>
     );
   }

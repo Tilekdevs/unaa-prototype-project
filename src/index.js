@@ -1,15 +1,18 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { MantineProvider } from "@mantine/core";
+import { I18nextProvider } from "react-i18next";
+import i18n from "./utils/i18n";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <BrowserRouter>
-    <MantineProvider>
-      <App />
-    </MantineProvider>
-  </BrowserRouter>
+ReactDOM.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <I18nextProvider i18n={i18n}>
+        <App />
+      </I18nextProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
