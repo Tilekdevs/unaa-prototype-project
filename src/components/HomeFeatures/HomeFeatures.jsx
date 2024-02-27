@@ -49,11 +49,17 @@ const features = [
 const HomeFeatures = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    rootMargin: "-100px",
+    rootMargin: "-160px",
   });
 
   return (
-    <div className="wrapper">
+    <motion.div
+      className="wrapper"
+      initial={{ opacity: 0, y: 50 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5 }}
+      ref={ref}
+    >
       <div className="wrapper__container">
         <div className="wrapper__left">
           <h1 className="head">Наши услуги</h1>
@@ -64,22 +70,16 @@ const HomeFeatures = () => {
         </div>
         <div className="wrapper__right">
           {features.map((feature, index) => (
-            <motion.div
-              className="feature"
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              ref={ref}
-            >
+            <div className="feature" key={index}>
               <div className="feature__icon">{feature.icon}</div>
               <h3 className="feature__title">{feature.title}</h3>
               <p className="feature__description">{feature.description}</p>
               <div className="feature__dimmer"></div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

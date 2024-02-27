@@ -1,5 +1,5 @@
 .header {
-  z-index: 160 !important;
+  z-index: 900 !important;
   background: transparent; 
   display: flex;
   align-items: center;
@@ -118,6 +118,13 @@
   .header__navigation{
     display: none;
   }  
+}
+
+
+@media screen and (min-width:320px) {
+  .header{
+    padding: 20px 35px;
+  }
 }
 
 
