@@ -115,6 +115,7 @@
   .inspection__container {
     flex-direction: column;
     align-items: center;
+    margin: 25px 0;
   }
   .inspection__top {
     height: 400px;
@@ -131,6 +132,7 @@
   .inspection__top-content {
     width: 90%;
     max-width: 400px;
+    margin-top: 25px;
   }
   .inspection__form {
     width: 90%;
@@ -141,6 +143,7 @@
     width: 90%;
     max-width: 400px;
     padding: 30px 20px;
+    text-align: center;
   }
   .inspection__faq-map {
     width: 100%;

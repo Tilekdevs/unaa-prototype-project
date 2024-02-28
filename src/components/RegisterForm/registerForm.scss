@@ -4,8 +4,8 @@
     height: auto;
     background: #fff;
     position: fixed;
-    top: -100%;
-    left: 38%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
     box-sizing: border-box;
@@ -18,76 +18,65 @@
 
     &.show {
         opacity: 1;
-        top: 13%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
     }
 
     &__container {
         text-align: center;
+        padding: 10px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        padding: 10px;
-
-        @media (max-width: 600px) {
-            padding: 10px 20px;
-        }
+        align-items: center;
     }
 
     &__title {
         color: #333333;
         font-size: 32px;
-        text-align: center;
         padding-bottom: 5px;
     }
 
     &__subtitle {
-        text-align: center;
         font-size: 16px;
     }
 
     &__top {
-        display: flex;
-        flex-direction: column;
         gap: 20px;
         padding: 30px 0;
+        display: flex;
+        flex-direction: column;
     }
 
     &__form {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 5px;
-
-        &-title {
-            padding: 0 10px;
-        }
+        gap: 10px;
     }
 
     &__close {
-		background: none; 
-		border: none; 
-		cursor: pointer; 
-		padding: 0; 
-		display: flex;
-		align-items: center; 
-		svg{
-			width: 20px;
-			height: 20px;
-		}
+        background: none; 
+        border: none; 
+        cursor: pointer; 
+        padding: 0; 
+        display: flex;
+        align-items: center; 
+        svg {
+            width: 20px;
+            height: 20px;
+        }
     }
 
     &__input {
-        width: 100%;
+        width: 380px;
         height: 50px;
         border-radius: 12px;
         outline: none;
         border: 1px solid #666666;
         padding-left: 25px;
         font-family: 'Onest', sans-serif;
-
-        &-title {
-            text-align: start;
-        }
     }
 
     &__btn {
@@ -99,6 +88,7 @@
         cursor: pointer;
         font-family: 'Onest', sans-serif;
         font-size: 18px;
+        width: 300px;
     }
 
     &__link {
@@ -107,6 +97,12 @@
         padding: 10px 0;
         color: #4285f4;
         cursor: pointer;
+    }
+
+    &__bottom{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     &__google {
@@ -123,6 +119,7 @@
         margin-top: 20px;
         display: flex;
         gap: 10px;
+        width: 300px;
 
         &-img {
             width: 20px;

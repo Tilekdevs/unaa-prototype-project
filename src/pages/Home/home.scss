@@ -154,7 +154,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width:555px) and (max-width: 788px) {
   .home__news-container {
     justify-content: center;
     margin: 0;
@@ -165,6 +165,13 @@
   .home__content-subtitle {
     font-size: 18px;
     width: 375px;
+  }
+  .home__news-card{
+    width: 545px;
+  }
+  .home__news-img{
+    width: 515px;
+    height: 285px;
   }
   .home__bottom {
     width: 600px;

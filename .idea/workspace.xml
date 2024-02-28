@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4328b0b6-fc34-4eb9-b13c-9b53a73fd32a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomeFeatures/HomeFeatures.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeFeatures/HomeFeatures.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomeFeatures/homeFeatures.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeFeatures/homeFeatures.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/Header/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/Header/header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Services/RequestForInspection/RequestInspection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Services/RequestForInspection/RequestInspection.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Services/RequestForInspection/RequestInspection.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Services/RequestForInspection/RequestInspection.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/i18n.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/i18n.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomeVideo/HomeVideo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeVideo/HomeVideo.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +66,7 @@
       <workItem from="1707233288170" duration="1339000" />
       <workItem from="1709031291833" duration="263000" />
       <workItem from="1709031573698" duration="16000" />
+      <workItem from="1709031668866" duration="2109000" />
     </task>
     <servers />
   </component>

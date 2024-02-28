@@ -1,5 +1,5 @@
 import React from "react";
-import "../../pages/Home/home.scss";
+import '../../pages/Home/home.scss'
 import videobg from "../../assets/video/bg.mp4";
 import { useTranslation } from "react-i18next";
 import HomeSearch from "../HomeSearch/HomeSearch";

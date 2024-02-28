@@ -1,6 +1,7 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import React, { useState, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/swiper-bundle.css";
 import { FaIdCard } from "react-icons/fa6";
 import { IoMdInformationCircle } from "react-icons/io";
 import { MdPersonSearch } from "react-icons/md";
@@ -47,19 +48,29 @@ const features = [
 ];
 
 const HomeFeatures = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    rootMargin: "-160px",
-  });
+  const [slidesPerView, setSlidesPerView] = useState(3); 
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setSlidesPerView(1); 
+      } else if (window.innerWidth < 1024) {
+        setSlidesPerView(2); 
+      } else {
+        setSlidesPerView(3); 
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); 
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
-    <motion.div
-      className="wrapper"
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5 }}
-      ref={ref}
-    >
+    <div className="wrapper">
       <div className="wrapper__container">
         <div className="wrapper__left">
           <h1 className="head">Наши услуги</h1>
@@ -69,17 +80,29 @@ const HomeFeatures = () => {
           </p>
         </div>
         <div className="wrapper__right">
-          {features.map((feature, index) => (
-            <div className="feature" key={index}>
-              <div className="feature__icon">{feature.icon}</div>
-              <h3 className="feature__title">{feature.title}</h3>
-              <p className="feature__description">{feature.description}</p>
-              <div className="feature__dimmer"></div>
-            </div>
-          ))}
+          <Swiper
+            className="swiper"
+            spaceBetween={20}
+            slidesPerView={slidesPerView}
+            loop={true}
+            modules={[Autoplay]}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            centeredSlides={true}
+          >
+            {features.map((feature, index) => (
+              <SwiperSlide key={index}>
+                <div className="feature">
+                  <div className="feature__icon">{feature.icon}</div>
+                  <h3 className="feature__title">{feature.title}</h3>
+                  <p className="feature__description">{feature.description}</p>
+                  <div className="feature__dimmer"></div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

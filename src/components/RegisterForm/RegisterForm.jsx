@@ -30,10 +30,9 @@ const RegisterForm = ({ onClose }) => {
         <LoginForm onClose={onClose} />
       ) : (
         <div className={`overlay ${isVisible ? "show" : ""}`}>
-          <div className={`register ${isVisible ? "show" : ""}`}>
-            <button className="register__close"  onClick={handleCloseForm}>
-              <AiOutlineClose
-              />
+          <form className={`register ${isVisible ? "show" : ""}`}>
+            <button className="register__close" onClick={handleCloseForm}>
+              <AiOutlineClose />
             </button>
             <p className="register__title">Регистрация</p>
             <p className="register__subtitle">
@@ -71,7 +70,7 @@ const RegisterForm = ({ onClose }) => {
                   />
                 </div>
                 <div className="register__form">
-                  <p className="register__form-title">Пароль...</p>
+                  <p className="register__form-title">Пароль</p>
                   <input
                     required
                     type="password"
@@ -80,16 +79,18 @@ const RegisterForm = ({ onClose }) => {
                   />
                 </div>
               </div>
-              <button className="register__btn">Зарегистрироваться</button>
-              <button className="register__google">
-                Продолжить с
-                <img className="register__google-img" src={google} alt="" />
-              </button>
-              <p href="#" className="register__link" onClick={toggleForm}>
-                Уже есть аккаунт?
-              </p>
+              <div className="register__bottom">
+                <button className="register__btn">Зарегистрироваться</button>
+                <button className="register__google">
+                  Продолжить с
+                  <img className="register__google-img" src={google} alt="" />
+                </button>
+                <p href="#" className="register__link" onClick={toggleForm}>
+                  Уже есть аккаунт?
+                </p>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
       )}
     </>
