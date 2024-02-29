@@ -30,12 +30,18 @@ const Jobs = () => {
 
   return (
     <section className="jobs">
+      <div className="jobs__top">
+        <h1 className="jobs__top-title">Вакансии</h1>
+        <select name="" id="" className="jobs__top-select">
+          <option value="" className="jobs__top-option">Бишкек</option>
+        </select>
+      </div>
       <div className="jobs__container">
         {jobsData.map((job) => (
           <div className="jobs__card" key={job.id}>
             <h3 className="jobs__title">{job.title}</h3>
             <p className="jobs__city">{job.city}</p>
-            <p className="jobs__notes">{job.note}</p>
+            {/* <p className="jobs__notes">{job.note}</p> */}
             <button onClick={() => openModal(job)} className="jobs__btn">Откликнуться</button>
           </div>
         ))}
