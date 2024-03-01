@@ -38,12 +38,15 @@
     }
   }
   &__container {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 75px 0;
     gap: 10%;
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.35);
+    -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.35);
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.35);
+    border-radius: 12px;
   }
   &__title {
     font-size: 35px;
@@ -56,16 +59,15 @@
   }
   &__form {
     width: 90%;
-    max-width: 550px;
+    max-width: 650px;
     display: flex;
     flex-direction: column;
-    padding: 40px 30px;
     gap: 20px;
     font-family: "Onest", sans-serif;
-    -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.35);
-    -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.35);
-    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.35);
-    border-radius: 10px;
+    // -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.35);
+    // -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.35);
+    // box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.35);
+    padding: 0 50px;
   }
   &__input {
     font-family: "Onest", sans-serif;
@@ -86,7 +88,12 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    align-items: center;
+    background: #1b1b1b;
+    color: #ffffff;
+    border-radius: 0 10px 10px 0 ;
+    &-title{
+      color: #fff;
+    }
     &-map {
       width: 100%;
       max-width: 550px;
@@ -106,7 +113,7 @@
     max-width: 400px;
   }
   .inspection__faq {
-    width: 80%;
+    width: 65%;
     max-width: 400px;
     padding: 50px 20px;
   }

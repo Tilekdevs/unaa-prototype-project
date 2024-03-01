@@ -80,3 +80,37 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .modal__window {
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal__window {
+    max-width: 300px;
+  }
+
+  .modal__close-button {
+    top: 5px;
+    right: 5px;
+    font-size: 18px;
+  }
+
+  .modal__title {
+    font-size: 24px;
+  }
+
+  .modal__subtitle {
+    font-size: 14px;
+  }
+
+  .modal__item {
+    font-size: 18px;
+  }
+}
+

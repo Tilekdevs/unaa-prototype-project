@@ -24,7 +24,6 @@ import InspectionForm from '../../../components/InspectionForm/InspectionForm'
 
           <div className="inspection__faq">
             <h2 className="inspection__faq-title">Остались вопросы?</h2>
-            <p className="inspection__faq-subtitle">Наш офис</p>
             <address className="inspection__faq-address">
               Адрес: ул. Чокана Валиханова, 2а 720048, Бишкек, Кыргызстан
             </address>

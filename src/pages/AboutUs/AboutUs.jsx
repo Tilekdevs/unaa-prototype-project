@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import * as React from 'react'
 import ContactList from '../../utils/_ContactsData'
 import History from './AboutDetails/History'
-import Managments from './AboutDetails/Managments'
+import Managment from './AboutDetails/Managment/Managment'
 import Contacts from './AboutDetails/Сontacts'
 import './aboutUs.scss'
 
@@ -74,7 +74,7 @@ export default function AboutUs() {
 						</Tabs>
 					</Box>
 					<CustomTabPanel value={value} index={0}>
-						<Managments />
+						<Managment />
 					</CustomTabPanel>
 					<CustomTabPanel value={value} index={1}>
 						<History />

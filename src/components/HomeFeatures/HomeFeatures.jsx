@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import { FaIdCard } from "react-icons/fa6";
+import { FaCalculator } from "react-icons/fa";
 import { IoMdInformationCircle } from "react-icons/io";
 import { MdPersonSearch } from "react-icons/md";
 import { PiCarDuotone } from "react-icons/pi";
@@ -34,14 +35,8 @@ const features = [
       "Customize colors, spacing, shadows, fonts and many other settings with global theme object",
   },
   {
-    icon: <PiCarDuotone />,
-    title: "Получение выписки по ТС",
-    description:
-      "Customize colors, spacing, shadows, fonts and many other settings with global theme object",
-  },
-  {
-    icon: <PiCarDuotone />,
-    title: "Получение выписки по ТС",
+    icon: <FaCalculator />,
+    title: "Калькулятор оформления ТС",
     description:
       "Customize colors, spacing, shadows, fonts and many other settings with global theme object",
   },
