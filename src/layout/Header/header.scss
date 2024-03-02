@@ -12,11 +12,13 @@
   left: 0;
   right: 0;
   transition: background 0.5s ease;
+
   &.scrolled {
     background: rgba(23, 23, 23, 0.9); 
     transition: background 0.5s ease;
     z-index: 200;
   }
+
   &__container-logo {
     display: flex;
     align-items: center;
@@ -29,12 +31,14 @@
     height: 70px;
     cursor: pointer;
   } 
+
   &__container-title {
     text-decoration: none;
     color: #ffffff;
     font-weight: 700;
     font-size: 18px;
   } 
+
   &__navigation {
     &-list {
       display: flex;
@@ -42,6 +46,7 @@
       gap: 30px;
       font-size: 20px;
       cursor: pointer;
+      align-items: center;
     }
 
     &-item {
@@ -50,8 +55,10 @@
       font-size: 15px;
       text-decoration: none;
       position: relative;
+      display: flex;
+      align-items: center;
 
-      svg{
+      svg {
         width: 13px;
         height: 13px;
         align-items: center;
@@ -60,7 +67,7 @@
       a {
         color: #ffffff;
         text-decoration: none;
-      
+
         &:hover {
           color: #cccccc;
         }
@@ -76,15 +83,27 @@
         background: transparent; 
         padding: 3px 0;
         width: 200px;
-
+        z-index: 150; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+        border-radius: 5px; 
+        &.scrolled {
+          background: rgba(23, 23, 23, 0.9); 
+          transition: background 0.5s ease;
+          z-index: 200;
+          transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
         li {
           list-style-type: none;
           padding: 5px 0;
           a {
             color: #fff;
-
+            display: block;
+            padding: 5px;
             &:hover {
-              text-decoration: underline;
+              text-decoration: none;
+              background-color: #cccccc; 
+              color: #171717; 
+              transition: background 0.5s ease;
             }
           }
         }
@@ -95,7 +114,8 @@
         visibility: visible;
       }
     }
-    &-select{
+
+    &-select {
       background: transparent;
       border: none;
       color: #ffffff;
@@ -105,7 +125,8 @@
       border: 1px solid white;
       border-radius: 6px;
     }
-    &-option{
+
+    &-option {
       background: #171717;
     }
   }
@@ -121,13 +142,8 @@
   }  
 }
 
-
 @media screen and (min-width:320px) {
   .header{
     padding: 20px 35px;
   }
 }
-
-
-
-  

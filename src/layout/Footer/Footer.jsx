@@ -92,7 +92,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <p className="footer__text">Государственное учреждение УНАА 2024</p>
+        <div className="footer__text">Государственное учреждение УНАА 2024</div>
       </footer>
     </div>
   );

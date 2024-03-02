@@ -35,16 +35,33 @@
     max-width: 550px;
     background-color: #ffffff;
     border-radius: 14px;
-    padding: 32px 24px;
-    margin: 12px;
-    text-decoration: none;
+    padding: 50px 24px;
+    margin: 20px;
     overflow: hidden;
-    border: 1px solid #f2f8f9;
-    transition: border 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     z-index: 50;
-    height: 275px;
+    height: 235px;
     cursor: pointer;
+    color: #ffffff;
+    background-size: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: url("https://media.istockphoto.com/id/1350239751/photo/car-diagnostic-service-and-electronics-repair.jpg?s=612x612&w=0&k=20&c=6xSgzMp9KJJ8lN0hC1UcuqXuuZMLNFCgCkcju-Q0BTU=");
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+      
+      transition: opacity 0.3s ease;
+    }
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+    }
     &__icon {
       font-size: 36px;
       color: #4a90e2;
@@ -58,21 +75,7 @@
     }
 
     &__description {
-      color: #666;
-    }
-
-    &:hover {
-      border: 1px solid #4a90e2;
-      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-      z-index: 500;
-
-      .feature__dimmer {
-        opacity: 1;
-      }
-
-      .feature__description {
-        color: #000;
-      }
+      color: #ffffff;
     }
   }
 

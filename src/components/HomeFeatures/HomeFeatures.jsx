@@ -11,31 +11,26 @@ import "./homeFeatures.scss";
 
 const features = [
   {
-    icon: <FaIdCard />,
     title: "Онлайн сервис Carcheck",
     description:
       "All packages are published under MIT license, you can use Mantine in any project",
   },
   {
-    icon: <IoMdInformationCircle />,
     title: "Проверка штрафов",
     description:
       "Build type safe applications, all components and hooks export types",
   },
   {
-    icon: <MdPersonSearch />,
     title: "Поиск владельца ТС",
     description:
       "With new :focus-visible selector focus ring will appear only when user navigates with keyboard",
   },
   {
-    icon: <PiCarDuotone />,
     title: "Получение выписки по ТС",
     description:
       "Customize colors, spacing, shadows, fonts and many other settings with global theme object",
   },
   {
-    icon: <FaCalculator />,
     title: "Калькулятор оформления ТС",
     description:
       "Customize colors, spacing, shadows, fonts and many other settings with global theme object",
@@ -87,7 +82,6 @@ const HomeFeatures = () => {
             {features.map((feature, index) => (
               <SwiperSlide key={index}>
                 <div className="feature">
-                  <div className="feature__icon">{feature.icon}</div>
                   <h3 className="feature__title">{feature.title}</h3>
                   <p className="feature__description">{feature.description}</p>
                   <div className="feature__dimmer"></div>
