@@ -4,11 +4,19 @@ import "../../layout/Header/header.scss";
 import LanguageSelect from "../LanguageSelect/LanguageSelect";
 import { useTranslation } from "react-i18next";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { HiOutlineUser } from "react-icons/hi2";
+import RegisterForm from "../RegisterForm/RegisterForm";
+import { GrLanguage } from "react-icons/gr";
 
 const HeaderNav = () => {
   const { t } = useTranslation();
   const location = useLocation();
+  const [showForm, setShowForm] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const toggleForm = () => {
+    setShowForm(!showForm);
+  };
 
   return (
     <nav className="header__navigation">
@@ -49,9 +57,14 @@ const HeaderNav = () => {
           <Link to="/camera">{t("camera")}</Link>
         </li>
         <li className="header__navigation-item">
+        <GrLanguage />
           <LanguageSelect />
         </li>
+        <li className="header__navigation-item" onClick={toggleForm}>
+          <HiOutlineUser className="user__icon" />
+        </li>
       </ul>
+      {showForm && <RegisterForm onClose={toggleForm} />} 
     </nav>
   );
 };
