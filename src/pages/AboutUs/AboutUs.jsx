@@ -4,7 +4,6 @@ import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import * as React from 'react';
-import ContactList from '../../utils/_ContactsData';
 import History from './AboutDetails/History';
 import Managment from './AboutDetails/Managment/Managment';
 import Contacts from './AboutDetails/Сontacts';
@@ -76,7 +75,7 @@ export default function AboutUs() {
                         <Managment />
                     </CustomTabPanel>
                     <CustomTabPanel value={value} index={1}>
-                        <ContactList contacts={Contacts} />
+                        <Contacts/>
                     </CustomTabPanel>
                 </Box>
             </div>

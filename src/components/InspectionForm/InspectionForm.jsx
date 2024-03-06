@@ -32,7 +32,7 @@ const InspectionForm = () => {
           Наши сотрудники вскоре свяжутся с вами для уточнения деталей.
         </p>
         <Stack>
-          <FormControl variant="standard" sx={{ minWidth: 120 }}>
+          <FormControl variant="outlined" sx={{ minWidth: 120 }}>
             <InputLabel id="vehicle-label">Ваш округ</InputLabel>
             <MuiSelect
               labelId="vehicle-label"
@@ -48,27 +48,27 @@ const InspectionForm = () => {
         <TextField
           className="inspection__input"
           placeholder="Ф.И.О."
-          variant="standard"
+          variant="outlined"
           label="Введите Ф.И.О."
           required
         />
         <TextField
           className="inspection__input"
           placeholder="+(996)"
-          variant="standard"
+          variant="outlined"
           label="Введите номер телефона"
           required
         />
         <TextField
           className="inspection__input"
           placeholder="example@gmail.com"
-          variant="standard"
+          variant="outlined"
           label="Введите электронный адрес"
           required
         />
         <TextField
           className="inspection__input"
-          variant="standard"
+          variant="outlined"
           label="Ваш номер автомобиля"
           required
         />
