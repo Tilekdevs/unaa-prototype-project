@@ -1,94 +1,142 @@
 .MainTabsContainer {
-	display: flex;
-	position: relative;
-	justify-content: center;
-	margin: 120px 0;
-	@media (max-width: 768px) {
-		flex-direction: column; 
-	}
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin: 120px 0;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 .AboutCompany {
-	position: relative;
-	align-items: center;
-	justify-content: center;
+  position: relative;
+  align-items: center;
+  justify-content: center;
 
-	& header {
-		margin: 10px;
-	}
+  & header {
+    margin: 10px;
+  }
 }
 
 .About {
-	display: flex;
-	position: relative;
-	justify-content: center;
-	flex-wrap: wrap;
-	gap: 20px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 
-	@media (max-width: 768px) {
-		flex-direction: column; 
-	}
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.search__top {
+  margin: 10px 0;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search__select {
+  display: flex;
+  gap: 15px;
+}
+
+.search__input {
+  width: 290px;
+  height: 45px;
+  border-radius: 5px;
+  outline: none;
+  padding: 10px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .MainCardItem {
-	display: flex;
-	position: relative;
-	flex-wrap: wrap;
-	gap: 20px;
-	justify-content: center;
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .card {
-	display: flex;
-	width: 100%;
-	gap: 45px;
-	position: relative;
-	border: 1px solid #ddd;
-	padding: 15px;
-	border-radius: 5px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	margin-bottom: 20px;
-	transition: box-shadow 0.3s ease;
-	cursor: pointer;
+  display: flex;
+  min-height: 105px;
+  width: 100%;
+  max-width: 1300px;
+  gap: 45px;
+  position: relative;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  margin: 10px 0;
 
-	@media (max-width: 768px) {
-		flex-direction: column;
-	}
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 
-	&__img {
-		object-fit: contain;
-		height: 400px;
-		width: 400px;
+  &__img {
+    object-fit: contain;
+    height: 400px;
+    width: 400px;
 
-		@media (max-width: 768px) {
-			width: 100%; 
-			height: auto; 
-		}
-	}
+    @media (max-width: 768px) {
+      width: 100%;
+      height: auto;
+    }
+  }
 
-	.info__container {
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-	}
+  .info__container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
   &:hover {
     box-shadow: 0 8px 16px rgba(15, 15, 15, 0.2);
   }
 
-	.info {
-		flex: 1;
-		font-size: 1em;
-		line-height: 1.5;
-	}
+  .info {
+    flex: 1;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-	.title {
-		font-size: 1.2em;
-		margin-bottom: 10px;
-	}
+  .icon {
+    background: #4895ef;
+    width: 45px;
+    height: 45px;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+  }
 
-	p {
-		font-style: italic;
-		// font-style: oblique;
-	}
+  .place{
+    font-size: 16px;
+  }
+
+  .title {
+    font-size: 15px;
+    margin-bottom: 10px;
+    width: 40%;
+  }
+
+  .date {
+    font-style: italic;
+    width: 20%;
+  }
+
+  .address {
+    display: flex;
+    flex-direction: column;
+    width: 32%;
+  }
 }

@@ -147,14 +147,14 @@
 @media screen and (max-width: 950px) {
   .home__bottom {
     width: 700px;
-    &-icon {
-      width: 40px;
-      height: 40px;
-    }
+  }
+  .home__bottom-icon {
+    width: 40px;
+    height: 40px;
   }
 }
 
-@media screen and (min-width:555px) and (max-width: 788px) {
+@media screen and (max-width: 788px) {
   .home__news-container {
     justify-content: center;
     margin: 0;
@@ -166,23 +166,26 @@
     font-size: 18px;
     width: 375px;
   }
-  .home__news-card{
+  .home__news-card {
     width: 545px;
   }
-  .home__news-img{
+  .home__news-img {
     width: 515px;
     height: 285px;
   }
   .home__bottom {
     width: 600px;
-    &-icon {
-      width: 50px;
-      height: 50px;
-    }
+  }
+  .home__bottom-icon {
+    width: 50px;
+    height: 50px;
   }
 }
 
-@media screen and (min-width: 475px) and (max-width: 630px) {
+@media screen and (max-width: 630px) {
+  .home__content{
+    text-align: left;
+  }
   .home__content-title {
     font-size: 28px;
   }
@@ -194,62 +197,70 @@
   }
   .home__bottom {
     width: 470px;
-    &-icon {
-      width: 60px;
-      height: 50px;
-    }
+  }
+  .home__bottom-icon {
+    width: 60px;
+    height: 50px;
   }
 }
 
-@media screen and (min-width: 360px) and (max-width: 475px) {
+@media screen and (max-width: 555px) {
+  .home__content{
+    text-align: left;
+    padding: 0 53px;
+  }
   .home__news-img {
-    width: 290px;
+    width: 380px;
+    height: 200px;
   }
   .home__news-card {
-    width: 325px;
+    width: 430px;
   }
   .home__content-title {
+    width: 100%;
     font-size: 22px;
   }
   .home__content-subtitle {
     font-size: 16px;
+    width: 100%;
   }
   .home__bottom {
     width: 300px;
     padding: 35px;
-    &-icon {
-      width: 85px;
-      height: 95px;
-    }
-    &-input {
-      font-size: 16px;
-    }
+  }
+  .home__bottom-icon {
+    width: 85px;
+    height: 95px;
+  }
+  .home__bottom-input {
+    font-size: 16px;
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 375px) {
+@media screen and (max-width: 395px) {
+  .home__news-card {
+    width: 345px;
+  }
   .home__news-img {
-    width: 290px;
+    width: 310px;
+    height: 180px;
   }
-  .home__content-title {
-    font-size: 25px;
-    width: 100%;
-    padding: 10px;
-  }
+  .home__content-title,
   .home__content-subtitle {
-    font-size: 20px;
+    font-size: 19px;
     width: 100%;
     padding: 10px;
+    text-align: left;
   }
   .home__bottom {
     width: 270px;
     padding: 20px;
-    &-icon {
-      width: 95px;
-      height: 95px;
-    }
-    &-input {
-      font-size: 16px;
-    }
+  }
+  .home__bottom-icon {
+    width: 95px;
+    height: 95px;
+  }
+  .home__bottom-input {
+    font-size: 16px;
   }
 }
