@@ -76,6 +76,7 @@ const HomeFeatures = () => {
             slidesPerView={slidesPerView}
             loop={true}
             modules={[Autoplay]}
+            
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             centeredSlides={true}
           >

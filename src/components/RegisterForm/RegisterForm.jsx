@@ -3,10 +3,20 @@ import "./registerForm.scss";
 import google from "../../assets/img/google.png";
 import { AiOutlineClose } from "react-icons/ai";
 import LoginForm from "../LoginForm/LoginForm";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { loginAccount } from "../../redux/reducers/userSlice";
 
 const RegisterForm = ({ onClose }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false);
+  const dispatch = useDispatch();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ mode: "onBlur" });
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -24,13 +34,25 @@ const RegisterForm = ({ onClose }) => {
     setShowLoginForm(!showLoginForm);
   };
 
+  const onSubmit = (data) => {
+    axios.post(`http://127.0.0.1:8000/api/register/register`, data)
+      .then((response) => {
+        const userData = response.data.user;
+        dispatch(loginAccount(userData));
+      }).catch((err) => console.log(err));
+  };
+
   return (
     <>
       {showLoginForm ? (
         <LoginForm onClose={onClose} />
       ) : (
         <div className={`overlay ${isVisible ? "show" : ""}`}>
-          <form className={`register ${isVisible ? "show" : ""}`}>
+          <form
+            className={`register ${isVisible ? "show" : ""}`}
+            onSubmit={handleSubmit(onSubmit)}
+            noValidate
+          >
             <button className="register__close" onClick={handleCloseForm}>
               <AiOutlineClose />
             </button>
@@ -43,44 +65,85 @@ const RegisterForm = ({ onClose }) => {
                 <div className="register__form">
                   <p className="register__form-title">Имя</p>
                   <input
-                    required
+                    {...register("first_name", { required: true })}
                     type="text"
-                    className="register__input"
+                    className={`register__input ${
+                      errors.first_name ? "error" : ""
+                    }`}
                     placeholder="Имя"
                   />
+                  {errors.first_name && (
+                    <span className="error-message">Это поле обязательно</span>
+                  )}
                 </div>
                 <div className="register__form">
                   <p className="register__form-title">Фамилия</p>
                   <input
-                    required
+                    {...register("last_name", { required: true })}
                     type="text"
-                    className="register__input"
+                    className={`register__input ${
+                      errors.last_name ? "error" : ""
+                    }`}
                     placeholder="Фамилия"
                   />
+                  {errors.last_name && (
+                    <span className="error-message">Это поле обязательно</span>
+                  )}
                 </div>
                 <div className="register__form">
                   <p className="register__form-title">
                     Адрес электронной почты
                   </p>
                   <input
-                    required
+                    {...register("email", {
+                      required: true,
+                      pattern: /^\S+@\S+$/i,
+                    })}
                     type="text"
-                    className="register__input"
+                    className={`register__input ${errors.email ? "error" : ""}`}
                     placeholder="Почта"
                   />
+                  {errors.email && (
+                    <span className="error-message">
+                      Введите корректный email адрес
+                    </span>
+                  )}
+                </div>
+                <div className="register__form">
+                  <p className="register__form-title">Логин</p>
+                  <input
+                    {...register("username", { required: true })}
+                    type="text"
+                    className={`register__input ${
+                      errors.username ? "error" : ""
+                    }`}
+                    placeholder="Логин"
+                  />
+                  {errors.lastName && (
+                    <span className="error-message">Это поле обязательно</span>
+                  )}
                 </div>
                 <div className="register__form">
                   <p className="register__form-title">Пароль</p>
                   <input
-                    required
+                    {...register("password", { required: true, minLength: 6 })}
                     type="password"
-                    className="register__input"
+                    className={`register__input ${
+                      errors.password ? "error" : ""
+                    }`}
                     placeholder="Пароль"
                   />
+                  {errors.password && (
+                    <span className="error-message">
+                      Пароль должен содержать минимум 6 символов
+                    </span>
+                  )}
                 </div>
               </div>
               <div className="register__bottom">
-                <button className="register__btn">Зарегистрироваться</button>
+                <button type="submit" className="register__btn">
+                  Зарегистрироваться
+                </button>
                 <button className="register__google">
                   Продолжить с
                   <img className="register__google-img" src={google} alt="" />
