@@ -1,5 +1,5 @@
-import React, { useState } from "react"; 
-import { createTheme, ThemeProvider } from "@mui/material/styles"; 
+import React, { useState } from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import {
   FormControl,
   InputLabel,
@@ -8,6 +8,8 @@ import {
   Stack,
   TextField,
 } from "@mui/material";
+import useCityData from "../../hooks/useCityData";
+import useDepartmentData from "../../hooks/useDepartmentData";
 
 const InspectionForm = () => {
   const theme = createTheme({
@@ -16,12 +18,17 @@ const InspectionForm = () => {
     },
   });
 
-  const [vehicle, setVehicle] = useState("");
+  const [selectedCity, setSelectedCity] = useState(""); 
+  const [selectedDepartment, setSelectedDepartment] = useState("");
+  const city = useCityData();
+  const department = useDepartmentData();
 
-  const handleChange = (event) => {
-    if (event.target) {
-      setVehicle(event.target.value);
-    }
+  const handleCityChange = (event) => {
+    setSelectedCity(event.target.value);
+  };
+
+  const handleDepartmentChange = (event) => {
+    setSelectedDepartment(event.target.value);
   };
 
   return (
@@ -33,15 +40,37 @@ const InspectionForm = () => {
         </p>
         <Stack>
           <FormControl variant="outlined" sx={{ minWidth: 120 }}>
-            <InputLabel id="vehicle-label">Ваш округ</InputLabel>
+            <InputLabel id="city-label">Область</InputLabel>
             <MuiSelect
-              labelId="vehicle-label"
-              id="vehicle-select"
-              value={vehicle}
-              onChange={handleChange}
+              labelId="city-label"
+              id="city-select"
+              value={selectedCity}
+              onChange={handleCityChange}
               label="Ваш округ"
             >
-              <MenuItem value="car">Бишкек</MenuItem>
+              {city.map((item) => (
+                <MenuItem key={item.id} value={item.title}>
+                  {item.title}
+                </MenuItem>
+              ))}
+            </MuiSelect>
+          </FormControl>
+        </Stack>
+        <Stack>
+          <FormControl variant="outlined" sx={{ minWidth: 120 }}>
+            <InputLabel id="department-label">Отделение</InputLabel>
+            <MuiSelect
+              labelId="department-label"
+              id="department-select"
+              value={selectedDepartment}
+              onChange={handleDepartmentChange}
+              label="Ваше отделение"
+            >
+              {department.map((item) => (
+                <MenuItem key={item.id} value={item.title}>
+                  {item.title}
+                </MenuItem>
+              ))}
             </MuiSelect>
           </FormControl>
         </Stack>
@@ -65,6 +94,7 @@ const InspectionForm = () => {
           variant="outlined"
           label="Введите электронный адрес"
           required
+          type="email"
         />
         <TextField
           className="inspection__input"
