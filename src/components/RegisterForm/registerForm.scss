@@ -150,3 +150,15 @@
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(8px);
 }
+
+.MuiSnackbar-root {
+    z-index: 10000; /* Устанавливаем большой z-index, чтобы Snackbar был поверх остальных элементов */
+}
+
+.MuiAlert-filledError {
+    background-color: #f44336; /* Цвет фона для Snackbar с ошибкой */
+}
+
+.MuiAlert-filledSuccess {
+    background-color: #4caf50; /* Цвет фона для Snackbar с успехом */
+}

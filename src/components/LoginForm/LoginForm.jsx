@@ -1,13 +1,19 @@
+// LoginForm.js
+
 import React, { useState } from 'react';
 import './loginForm.scss';
 import { IoCloseOutline } from 'react-icons/io5';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { loginAccount } from '../../redux/reducers/userSlice';
 
 const LoginForm = ({ onClose }) => {
   const [loginData, setLoginData] = useState({
     username: '',
     password: ''
   });
+
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +27,9 @@ const LoginForm = ({ onClose }) => {
         loginData
       );
       console.log('Login success:', response.data);
-      alert('Вход успешно выполнен!');
+      // Если сервер возвращает только сообщение, то сохраняем в Redux Store введенные пользователем данные
+      dispatch(loginAccount(loginData)); // Сохраняем данные о пользователе в Redux Store
+      onClose(); // Закрытие формы после успешного входа
     } catch (error) {
       console.error('Login failed:', error);
       alert('Ошибка входа. Пожалуйста, проверьте введенные данные.');
@@ -55,7 +63,7 @@ const LoginForm = ({ onClose }) => {
               />
             </div>
             <div className='login__form'>
-              <p className='login__form-title'>Пароль...</p>
+              <p className='login__form-title'>Пароль</p>
               <input
                 required
                 type='password'

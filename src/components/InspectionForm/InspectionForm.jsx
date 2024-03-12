@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import useCityData from "../../hooks/useCityData";
 import useDepartmentData from "../../hooks/useDepartmentData";
+import { useSelector } from "react-redux";
 
 const InspectionForm = () => {
   const theme = createTheme({
@@ -22,6 +23,7 @@ const InspectionForm = () => {
   const [selectedDepartment, setSelectedDepartment] = useState("");
   const city = useCityData();
   const department = useDepartmentData();
+  const user = useSelector((state) => state.user.userData)
 
   const handleCityChange = (event) => {
     setSelectedCity(event.target.value);
@@ -102,7 +104,14 @@ const InspectionForm = () => {
           label="Ваш номер автомобиля"
           required
         />
-        <button className="inspection__btn">Отправить</button>
+       {
+        user.username ? (
+          <button className="inspection__btn">Отправить</button>
+        ) :
+        (
+          <button className="inspection__btn" disabled>Зарегистрируйтесь</button>
+        )
+       }
       </form>
     </ThemeProvider>
   );

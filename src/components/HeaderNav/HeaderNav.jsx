@@ -7,15 +7,22 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { HiOutlineUser } from "react-icons/hi2";
 import RegisterForm from "../RegisterForm/RegisterForm";
 import { GrLanguage } from "react-icons/gr";
+import { useDispatch, useSelector } from "react-redux";
+import { logOutAccount } from "../../redux/reducers/userSlice";
 
 const HeaderNav = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const [showForm, setShowForm] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const user = useSelector((state) => state.user.userData);
+  const dispatch = useDispatch();
 
   const toggleForm = () => {
     setShowForm(!showForm);
+  };
+
+  const handleLogout = () => {
+    dispatch(logOutAccount());
   };
 
   return (
@@ -37,15 +44,15 @@ const HeaderNav = () => {
           {t("service.main")} <MdKeyboardArrowDown />
           <ul
             className={`header__dropdown ${
-              scrolled || location.pathname !== "/" ? "scrolled" : ""
+              location.pathname !== "/" ? "scrolled" : ""
             }`}
           >
             <li>
-              <Link to="/calculator">{t("service.calculator")} </Link>
+              <Link to="/calculator">{t("service.calculator")}</Link>
             </li>
             <li>
               <Link to="/request-for-inspection">
-                {t("service.inspection")}{" "}
+                {t("service.inspection")}
               </Link>
             </li>
           </ul>
@@ -57,14 +64,20 @@ const HeaderNav = () => {
           <Link to="/camera">{t("camera")}</Link>
         </li>
         <li className="header__navigation-item">
-        <GrLanguage />
+          <GrLanguage />
           <LanguageSelect />
         </li>
-        <li className="header__navigation-item" onClick={toggleForm}>
-          <HiOutlineUser className="user__icon" />
+        <li className="header__navigation-item">
+          {user.username ? (
+            <Link to="/" onClick={handleLogout}>
+              Выйти
+            </Link>
+          ) : (
+            <HiOutlineUser className="user__icon" onClick={toggleForm} />
+          )}
         </li>
       </ul>
-      {showForm && <RegisterForm onClose={toggleForm} />} 
+      {showForm && <RegisterForm onClose={toggleForm} />}
     </nav>
   );
 };

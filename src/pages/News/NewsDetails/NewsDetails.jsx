@@ -86,12 +86,6 @@ const NewsDetails = () => {
           </div>
         </div>
       </div>
-      <div className="news__details-bottom">
-        {/* <div className="news__details-socials">
-          <FaFacebook className="news__details-socials-icon facebook" />
-          <FaWhatsapp className="news__details-socials-icon whatsapp" />
-        </div> */}
-      </div>
     </div>
   );
 };

@@ -7,6 +7,8 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { loginAccount } from "../../redux/reducers/userSlice";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 
 const RegisterForm = ({ onClose }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -37,10 +39,23 @@ const RegisterForm = ({ onClose }) => {
   const onSubmit = (data) => {
     axios.post(`http://127.0.0.1:8000/api/register/register`, data)
       .then((response) => {
-        const userData = response.data.user;
+        const userData = {
+          username: data.username,
+          password: data.password,
+          first_name: data.first_name,
+          last_name: data.last_name,
+          email: data.email
+        }; 
+        console.log(response);
         dispatch(loginAccount(userData));
-      }).catch((err) => console.log(err));
+        onClose(); 
+      }).catch((err) => {
+        console.log(err);
+      ;
+      });
   };
+  
+ 
 
   return (
     <>
@@ -119,7 +134,7 @@ const RegisterForm = ({ onClose }) => {
                     }`}
                     placeholder="Логин"
                   />
-                  {errors.lastName && (
+                  {errors.username && (
                     <span className="error-message">Это поле обязательно</span>
                   )}
                 </div>
