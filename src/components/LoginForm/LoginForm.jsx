@@ -1,6 +1,4 @@
-// LoginForm.js
-
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import './loginForm.scss';
 import { IoCloseOutline } from 'react-icons/io5';
 import axios from 'axios';
@@ -15,30 +13,27 @@ const LoginForm = ({ onClose }) => {
 
   const dispatch = useDispatch();
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
-    setLoginData({ ...loginData, [name]: value });
-  };
+    setLoginData((prevData) => ({ ...prevData, [name]: value }));
+  }, []);
 
-  const handleLogin = async () => {
+  const handleLogin = useCallback(async () => {
     try {
-      const response = await axios.post(
-        'http://127.0.0.1:8000/api/login/login',
-        loginData
-      );
+      const response = await axios.post('http://127.0.0.1:8000/api/login/login', loginData);
       console.log('Login success:', response.data);
-      // Если сервер возвращает только сообщение, то сохраняем в Redux Store введенные пользователем данные
-      dispatch(loginAccount(loginData)); // Сохраняем данные о пользователе в Redux Store
-      onClose(); // Закрытие формы после успешного входа
+
+      dispatch(loginAccount(response.data)); // Отправляем данные ответа
+      onClose(); 
     } catch (error) {
       console.error('Login failed:', error);
       alert('Ошибка входа. Пожалуйста, проверьте введенные данные.');
     }
-  };
+  }, [dispatch, loginData, onClose]);
 
-  const handleCloseForm = () => {
+  const handleCloseForm = useCallback(() => {
     onClose();
-  };
+  }, [onClose]);
 
   return (
     <div className='overlay'>

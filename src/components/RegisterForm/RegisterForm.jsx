@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./registerForm.scss";
 import google from "../../assets/img/google.png";
 import { AiOutlineClose } from "react-icons/ai";
@@ -28,34 +28,34 @@ const RegisterForm = ({ onClose }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleCloseForm = () => {
+  const handleCloseForm = useCallback(() => {
     onClose();
-  };
+  }, [onClose]);
 
-  const toggleForm = () => {
-    setShowLoginForm(!showLoginForm);
-  };
+  const toggleForm = useCallback(() => {
+    setShowLoginForm((prevShowLoginForm) => !prevShowLoginForm);
+  }, []);
 
-  const onSubmit = (data) => {
-    axios.post(`http://127.0.0.1:8000/api/register/register`, data)
+  const onSubmit = useCallback((data) => {
+    axios
+      .post(`http://127.0.0.1:8000/api/register/register`, data)
       .then((response) => {
         const userData = {
           username: data.username,
           password: data.password,
           first_name: data.first_name,
           last_name: data.last_name,
-          email: data.email
-        }; 
+          email: data.email,
+        };
         console.log(response);
         dispatch(loginAccount(userData));
-        onClose(); 
-      }).catch((err) => {
+        onClose();
+      })
+      .catch((err) => {
         console.log(err);
-      ;
+        // Handle network errors
       });
-  };
-  
- 
+  }, [dispatch, onClose]);
 
   return (
     <>
