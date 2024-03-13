@@ -21,16 +21,22 @@ const LoginForm = ({ onClose }) => {
   const handleLogin = useCallback(async () => {
     try {
       const response = await axios.post('http://127.0.0.1:8000/api/login/login', loginData);
-      console.log('Login success:', response.data);
+      console.log('Login response:', response.data);
+  
+      if (response.data.message === "Вход выполнен успешно") {
 
-      dispatch(loginAccount(response.data)); // Отправляем данные ответа
-      onClose(); 
+        dispatch(loginAccount({ username: loginData.username, password: loginData.password }));
+        onClose(); 
+        console.log('Login success:', response.data.message);
+      } else {
+        console.error('Login failed:', response.data.message);
+        alert('Ошибка входа. Пожалуйста, проверьте введенные данные.');
+      }
     } catch (error) {
       console.error('Login failed:', error);
       alert('Ошибка входа. Пожалуйста, проверьте введенные данные.');
     }
-  }, [dispatch, loginData, onClose]);
-
+  }, [dispatch, loginData.username, onClose]);
   const handleCloseForm = useCallback(() => {
     onClose();
   }, [onClose]);
@@ -79,4 +85,4 @@ const LoginForm = ({ onClose }) => {
   );
 };
 
-export default LoginForm;
+export default LoginForm; 

@@ -13,6 +13,7 @@ import MuiAlert from "@mui/material/Alert";
 const RegisterForm = ({ onClose }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false);
+  const [isRegistrationSuccess, setIsRegistrationSuccess] = useState(false); // Состояние для отслеживания успешной регистрации
   const dispatch = useDispatch();
   const {
     register,
@@ -49,13 +50,21 @@ const RegisterForm = ({ onClose }) => {
         };
         console.log(response);
         dispatch(loginAccount(userData));
+        setIsRegistrationSuccess(true); // Устанавливаем состояние успешной регистрации в true
         onClose();
       })
       .catch((err) => {
         console.log(err);
-        // Handle network errors
       });
   }, [dispatch, onClose]);
+
+  const handleSnackbarClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setIsRegistrationSuccess(false); // Закрываем Snackbar и сбрасываем состояние успешной регистрации
+  };
 
   return (
     <>
@@ -169,6 +178,20 @@ const RegisterForm = ({ onClose }) => {
               </div>
             </div>
           </form>
+          <Snackbar
+            open={isRegistrationSuccess}
+            autoHideDuration={6000}
+            onClose={handleSnackbarClose}
+          >
+            <MuiAlert
+              elevation={6}
+              variant="filled"
+              onClose={handleSnackbarClose}
+              severity="success"
+            >
+              Регистрация успешно завершена!
+            </MuiAlert>
+          </Snackbar>
         </div>
       )}
     </>
