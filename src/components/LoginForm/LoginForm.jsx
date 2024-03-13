@@ -18,28 +18,35 @@ const LoginForm = ({ onClose }) => {
     setLoginData((prevData) => ({ ...prevData, [name]: value }));
   }, []);
 
+  
+
   const handleLogin = useCallback(async () => {
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/login/login', loginData);
+      const updatedLoginData = { ...loginData }; 
+      const response = await axios.post('http://127.0.0.1:8000/api/login/login', updatedLoginData);
       console.log('Login response:', response.data);
   
       if (response.data.message === "Вход выполнен успешно") {
-
-        dispatch(loginAccount({ username: loginData.username, password: loginData.password }));
+        dispatch(loginAccount({ username: updatedLoginData.username }));
         onClose(); 
-        console.log('Login success:', response.data.message);
+        console.log('Login success:', response.data.message);      
       } else {
         console.error('Login failed:', response.data.message);
-        alert('Ошибка входа. Пожалуйста, проверьте введенные данные.');
+        alert('Ошибка входа. Пожалуйста, проверьте введенные данные.');      
       }
     } catch (error) {
       console.error('Login failed:', error);
       alert('Ошибка входа. Пожалуйста, проверьте введенные данные.');
+    } finally {
+      setLoginData({ username: '', password: '' });
     }
-  }, [dispatch, loginData.username, onClose]);
+  }, [dispatch, loginData, onClose]);
+  
+  
   const handleCloseForm = useCallback(() => {
     onClose();
   }, [onClose]);
+  
 
   return (
     <div className='overlay'>
