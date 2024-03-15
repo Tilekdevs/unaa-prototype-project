@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { format } from "date-fns";
 import { ru } from "date-fns/locale";
 import { useTranslation } from "react-i18next";
+import he from "he"; 
 import "./search.scss";
 
 const truncateText = (text, wordCount) => {
@@ -46,7 +47,7 @@ const Search = () => {
                   {formatDate(item.published_date)}
                 </p>
                 <p className="search__card-text">
-                  {truncateText(item.text, 60)}
+                  {he.decode(item.text)} 
                 </p>
                 <Link to={`/news/${item.id}`} className="search__card-link">
                   Подробнее
@@ -56,22 +57,22 @@ const Search = () => {
             {item.city && (
               <>
                 <h2 className="search__card-title">{item.title}</h2>
-                <p className="search__card-text">Город: {item.city}</p>
-                <p className="search__card-text">Примечание: {item.note}</p>
+                <p className="search__card-text">Город: {he.decode(item.city)}</p>
+                <p className="search__card-text">Примечание: {he.decode(item.note)}</p>
               </>
             )}
             {item.time_job && (
               <>
                 <h2 className="search__card-title">{item.title}</h2>
-                <p className="search__card-text">Адрес: {item.address}</p>
-                <p className="search__card-text">Телефон: {item.phone}</p>
-                <p className="search__card-text">График: {item.time_job}</p>
+                <p className="search__card-text">Адрес: {he.decode(item.address)}</p>
+                <p className="search__card-text">Телефон: {he.decode(item.phone)}</p>
+                <p className="search__card-text">График: {he.decode(item.time_job)}</p>
               </>
             )}
             {item.avatar && (
               <>
                 <h2 className="search__card-title">{item.name}</h2>
-                <p className="search__card-text">{item.description}</p>
+                <p className="search__card-text">{he.decode(item.description)}</p>
               </>
             )}
             {item.city && (

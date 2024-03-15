@@ -19,7 +19,7 @@ const HomeSearch = () => {
     try {
       const urls = [
         "http://127.0.0.1:8000/api/news",
-        "http://127.0.0.1:8000/api/job/jobs",
+        // "http://127.0.0.1:8000/api/job/jobs",
         "http://127.0.0.1:8000/api/about/contact",
         "http://127.0.0.1:8000/api/about/management",
       ];

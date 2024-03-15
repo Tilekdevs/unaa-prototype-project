@@ -11,6 +11,7 @@ import {
 import useCityData from "../../hooks/useCityData";
 import useDepartmentData from "../../hooks/useDepartmentData";
 import { useSelector } from "react-redux";
+import axios from 'axios';
 
 const InspectionForm = () => {
   const theme = createTheme({
@@ -19,23 +20,67 @@ const InspectionForm = () => {
     },
   });
 
-  const [selectedCity, setSelectedCity] = useState(""); 
-  const [selectedDepartment, setSelectedDepartment] = useState("");
+  const [selectedCityId, setSelectedCityId] = useState("");
+  const [selectedDepartmentId, setSelectedDepartmentId] = useState("");
   const city = useCityData();
   const department = useDepartmentData();
-  const user = useSelector((state) => state.user.userData)
+  const user = useSelector((state) => state.user.userData);
+
+  const [formData, setFormData] = useState({
+    category_id: {selectedCityId},
+    nearest_department_id: {selectedDepartmentId},
+    fullName: "",
+    phoneNumber: "",
+    email: "",
+    carNumber: "",
+    createdDate: new Date().toISOString(),
+    isActive: true
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
 
   const handleCityChange = (event) => {
-    setSelectedCity(event.target.value);
+    setSelectedCityId(event.target.value);
   };
 
   const handleDepartmentChange = (event) => {
-    setSelectedDepartment(event.target.value);
+    setSelectedDepartmentId(event.target.value);
   };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const requestData = {
+        category_id: selectedCityId,
+        nearest_department_id: selectedDepartmentId,
+        full_name: formData.fullName,
+        phone_number: formData.phoneNumber,
+        email: formData.email,
+        car_number: formData.carNumber,
+        created_date: formData.createdDate,
+        is_active: formData.isActive
+      };
+        
+      console.log('RequestData:', requestData);
+      const response = await axios.post('http://127.0.0.1:8000/api/online/create_appeal', requestData);
+      console.log('Response:', response.data);
+      
+    } catch (error) {
+      console.error('Error:', error);
+      
+    }
+  };
+  
 
   return (
     <ThemeProvider theme={theme}>
-      <form action="" className="inspection__form">
+      <form onSubmit={handleSubmit} className="inspection__form">
         <h2 className="inspection__title">Оставьте заявку на осмотр</h2>
         <p className="inspection__subtitle">
           Наши сотрудники вскоре свяжутся с вами для уточнения деталей.
@@ -46,14 +91,12 @@ const InspectionForm = () => {
             <MuiSelect
               labelId="city-label"
               id="city-select"
-              value={selectedCity}
+              value={selectedCityId}
               onChange={handleCityChange}
               label="Ваш округ"
             >
               {city.map((item) => (
-                <MenuItem key={item.id} value={item.title}>
-                  {item.title}
-                </MenuItem>
+                <MenuItem key={item.id} value={item.id}>{item.title}</MenuItem>
               ))}
             </MuiSelect>
           </FormControl>
@@ -64,14 +107,12 @@ const InspectionForm = () => {
             <MuiSelect
               labelId="department-label"
               id="department-select"
-              value={selectedDepartment}
+              value={selectedDepartmentId}
               onChange={handleDepartmentChange}
               label="Ваше отделение"
             >
               {department.map((item) => (
-                <MenuItem key={item.id} value={item.title}>
-                  {item.title}
-                </MenuItem>
+                <MenuItem key={item.id} value={item.id}>{item.title}</MenuItem>
               ))}
             </MuiSelect>
           </FormControl>
@@ -81,6 +122,9 @@ const InspectionForm = () => {
           placeholder="Ф.И.О."
           variant="outlined"
           label="Введите Ф.И.О."
+          name="fullName"
+          value={formData.fullName}
+          onChange={handleInputChange}
           required
         />
         <TextField
@@ -88,6 +132,9 @@ const InspectionForm = () => {
           placeholder="+(996)"
           variant="outlined"
           label="Введите номер телефона"
+          name="phoneNumber"
+          value={formData.phoneNumber}
+          onChange={handleInputChange}
           required
         />
         <TextField
@@ -95,6 +142,9 @@ const InspectionForm = () => {
           placeholder="example@gmail.com"
           variant="outlined"
           label="Введите электронный адрес"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
           required
           type="email"
         />
@@ -102,11 +152,14 @@ const InspectionForm = () => {
           className="inspection__input"
           variant="outlined"
           label="Ваш номер автомобиля"
+          name="carNumber"
+          value={formData.carNumber}
+          onChange={handleInputChange}
           required
         />
        {
         user.username ? (
-          <button className="inspection__btn">Отправить</button>
+          <button type="submit" className="inspection__btn">Отправить</button>
         ) :
         (
           <button className="inspection__btn" disabled>Зарегистрируйтесь</button>

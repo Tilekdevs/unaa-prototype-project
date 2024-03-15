@@ -14,7 +14,7 @@ const HomeNews = () => {
   useEffect(() => {
     const getNews = async () => {
       try {
-        const res = await axios.get("http://127.0.0.1:8000/api/news?_limit=6");
+        const res = await axios.get("http://127.0.0.1:8000/api/news?_limit=8");
         setNews(res.data);
       } catch (err) {
         console.log('Error', err);
@@ -30,7 +30,7 @@ const HomeNews = () => {
       
       {news.length > 0 &&
         <div className="home__news-container">
-          {news.slice(0, 6).map((item, index) => (
+          {news.slice(0, 8).map((item, index) => (
             <NewsCard key={item.id} item={item} index={index} navigate={navigate} />
           ))}
         </div>
@@ -49,6 +49,14 @@ const NewsCard = ({ item, index, navigate }) => {
     }
   }, [inView, animationPlayed]);
 
+
+  if (!item || !item.title) {
+    return null;
+  }
+
+  const trimmedTitle = item.title.split(' ').slice(0, 20).join(' ');
+  const displayTitle = item.title.split(' ').length > 20 ? `${trimmedTitle}...` : trimmedTitle;
+
   return (
     <motion.div
       ref={ref}
@@ -64,7 +72,7 @@ const NewsCard = ({ item, index, navigate }) => {
       />
       <div className="home__news-info">
         <p className="home__news-date">{format(new Date(item.published_date), 'd MMMM yyyy года', { locale: ru })}</p>
-        <h3 onClick={() => navigate(`/news/${item.id}`)} className="home__news-subtitle">{item.title}</h3>
+        <h3 onClick={() => navigate(`/news/${item.id}`)} className="home__news-subtitle">{displayTitle}</h3>
       </div>
     </motion.div>
   );

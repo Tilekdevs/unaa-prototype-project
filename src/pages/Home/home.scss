@@ -57,6 +57,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      min-height: 900px;
     }
   }
 
@@ -190,6 +191,7 @@
     justify-content: center;
     margin: 0;
   }
+ 
   .home__content-title {
     font-size: 33px;
   }
@@ -236,6 +238,7 @@
 }
 
 @media screen and (max-width: 555px) {
+ 
   .home__content {
     text-align: left;
     padding: 0 53px;
@@ -273,6 +276,7 @@
   .home{
     min-height: 435px;
   }
+ 
   .home__news-card {
     width: 345px;
   }
@@ -307,6 +311,7 @@
 }
 
 @media screen and (max-width:330px) {
+  
   .home__content-title {
     font-size: 14px;
     width: 100%;
