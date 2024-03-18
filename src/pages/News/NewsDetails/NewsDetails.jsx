@@ -107,26 +107,30 @@ const NewsDetails = () => {
           {relatedNews
             .filter((relatedNewsItem) => relatedNewsItem.id !== newsItem.id)
             .slice(0, 4)
-            .map((relatedNewsItem) => (
-              <div
-                key={relatedNewsItem.id} 
-                className="news__right-extra"
-                onClick={() => navigate(`/news/${relatedNewsItem.id}`)}
-              >
-                {relatedNewsItem.published_date && (
-                  <span className="news__right-extra-date">
-                    {format(
-                      new Date(relatedNewsItem.published_date),
-                      "d MMMM yyyy года",
-                      { locale: ru }
-                    )}
-                  </span>
-                )}
-                <div className="news__right-extra-title">
-                  {he.decode(relatedNewsItem.title)}
+            .map((relatedNewsItem) => {
+              const trimmedTitle = relatedNewsItem.title.split(' ').slice(0, 20).join(' ');
+              const displayTitle = relatedNewsItem.title.split(' ').length > 20 ? `${trimmedTitle}...` : trimmedTitle;
+              return (
+                <div
+                  key={relatedNewsItem.id} 
+                  className="news__right-extra"
+                  onClick={() => navigate(`/news/${relatedNewsItem.id}`)}
+                >
+                  {relatedNewsItem.published_date && (
+                    <span className="news__right-extra-date">
+                      {format(
+                        new Date(relatedNewsItem.published_date),
+                        "d MMMM yyyy года",
+                        { locale: ru }
+                      )}
+                    </span>
+                  )}
+                  <div className="news__right-extra-title">
+                    {he.decode(displayTitle)}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
         </div>
       </div>
     </>

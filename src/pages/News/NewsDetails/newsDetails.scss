@@ -23,24 +23,26 @@
   }
 
   &-image {
-    width: 90%;
+    width: 95%;
     margin: 15px 5px;
     display: flex;
     object-fit: cover;
     .swiper {
-      height: 600px;
+      height: 700px;
       margin-left: 10px;
     }
   }
 
   &-info {
     margin: 0 35px;
+    width: 100%;
+    margin-bottom: 70px;
   }
 
   &-desc {
     color: #333;
     margin: 20px 15px;
-    width: 75%;
+    width: 92%;
     font-size: 19px;
     line-height: 1.6;
   }
@@ -94,13 +96,14 @@
 .news__info {
   display: flex;
   width: 100%;
+  gap: 8rem;
 }
 
 .news__right {
-  width: 25%;
+  width: 35%;
   display: flex;
   flex-direction: column;
-  margin-top: 220px;
+  margin: 275px 0 0 -95px;
   gap: 10px;
   &-title {
     padding: 15px 0;
@@ -114,7 +117,7 @@
   -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.35) !important;
   box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.35) !important;
   border-radius: 8px;
-  padding: 25px;
+  padding: 40px;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -139,14 +142,15 @@ a {
   text-decoration: none;
 }
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1550px) {
   .news__info {
     flex-direction: column;
+    gap: 3rem;
   }
   .news__details {
     width: 100%;
     &-image {
-      width: 100%;
+      width: 96%;
     }
     &-desc {
       width: 95%;
@@ -161,12 +165,58 @@ a {
       text-align: left;
     }
     &-extra {
-      width: 80%;
+      width: 90%;
     }
   }
 }
 
-@media screen and (max-width:820px) {
+@media screen and (max-width:850px) {
+  .news__details-info{
+    margin: 0 19px;
+  }
+  .news__right{
+    align-items: center;
+    margin: 0 19px;
+  }
+  .news__details-title{
+    font-size: 30px;
+  }
+  .news__details-image{
+    .swiper{
+      height: 450px;
+    }
+  }
+}
+
+@media screen and (max-width:450px) {
+  .news__details-title{
+    font-size: 24px;
+  }
+  .news__details-info{
+    margin: 0;
+  }
+  .news__right{
+    align-items: center;
+    margin: 0;
+  }
+  .news__details-image{
+    .swiper{
+      height: 260px;
+    }
+    .swiper-button-next:after{
+      font-size: 25px;
+    }
+    .swiper-button-prev:after{
+      font-size: 25px;
+    }
+  }
+  .news__details-title{
+    font-size: 20px;
+  }
+  
+}
+
+@media screen and (max-width:320px) {
   .news__right{
     align-items: center;
     margin: 0;
@@ -176,3 +226,6 @@ a {
   }
   
 }
+
+
+
