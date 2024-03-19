@@ -51,7 +51,7 @@ const Camera = () => {
     fetchData();
   }, []);
 
-  const changeStreamImage = useCallback((id) => setCurrentStreamId(id), []);
+  const changeStreamImage = useCallback((id) => setCurrentStreamId(id), [setCurrentStreamId]);
 
   const currentStream = streams.find(stream => stream.id === currentStreamId);
   const streamImage = currentStream ? `http://127.0.0.1:8000/api/streams/${currentStreamId}` : null;

@@ -34,7 +34,7 @@ const BurgerMenu = () => {
 
       <nav className={`menu ${isMenuOpen ? "show-menu" : ""}`}>
       
-          <LanguageSelect />
+          <LanguageSelect  />
           <span className="close-icon" onClick={toggleMenu}>
             <FaTimes />
           </span>
