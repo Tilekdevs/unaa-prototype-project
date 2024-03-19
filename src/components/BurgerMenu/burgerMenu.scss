@@ -22,6 +22,7 @@
       margin: 0;
       text-align: center;
       margin: 70px 0;
+
       li {
         padding: 20px 0;
         position: relative;
@@ -82,41 +83,48 @@
   .show-menu {
     transform: translateX(0);
   }
-}
 
-.close-icon {
-  position: absolute;
-  right: 5%;
-  top: 3%;
-  font-size: 25px;
-  color: #fff;
-}
-
-.service-text {
-  color: #fff;
-  font-size: 20px;
-}
-
-.menu__bottom {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  &-btn {
-    width: 180px;
-    height: 60px;
-    border-radius: 10px;
-    font-size: 20px;
-    background-color: #fff;
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    align-items: center;
+  .close-icon {
+    position: absolute;
+    right: 5%;
+    top: 3%;
+    font-size: 25px;
+    color: #fff;
   }
-}
 
-@media screen and (min-width: 1000px) {
-  .burger-menu {
-    display: none;
+  .service-text {
+    color: #fff;
+    font-size: 20px;
+  }
+
+  .menu__bottom {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    &-btn {
+      width: 180px;
+      height: 60px;
+      border-radius: 10px;
+      font-size: 20px;
+      background-color: #fff;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &.menu-open {
+    .menu {
+      transform: translateX(0);
+    }
+    .close-icon {
+      display: block;
+    }
+  }
+
+  &.scroll-blocked {
+    overflow: hidden;
   }
 }
