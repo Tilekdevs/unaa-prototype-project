@@ -9,17 +9,20 @@ import { useTranslation } from "react-i18next";
 const BurgerMenu = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isScrollBlocked, setScrollBlocked] = useState(false); // Состояние для блокировки скролла
   const location = useLocation();
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     setMenuOpen(false);
     setDropdownOpen(false);
+    setScrollBlocked(false); // Сбросить блокировку скролла при закрытии меню
   }, [location]);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
     setDropdownOpen(false);
+    setScrollBlocked(!isMenuOpen); // Блокировать скролл только при открытом меню
   };
 
   const toggleDropdown = () => {
@@ -27,18 +30,16 @@ const BurgerMenu = () => {
   };
 
   return (
-    <div className="burger-menu">
+    <div className={`burger-menu ${isMenuOpen ? 'menu-open' : ''} ${isScrollBlocked ? 'scroll-blocked' : ''}`}>
       <div className="burger-icon" onClick={toggleMenu}>
         {isMenuOpen ? <FaTimes /> : <FaBars />}
       </div>
 
       <nav className={`menu ${isMenuOpen ? "show-menu" : ""}`}>
-      
-          <LanguageSelect />
-          <span className="close-icon" onClick={toggleMenu}>
-            <FaTimes />
-          </span>
-      
+        <LanguageSelect />
+        <span className="close-icon" onClick={toggleMenu}>
+          <FaTimes />
+        </span>
 
         <ul>
           <li>
@@ -53,18 +54,11 @@ const BurgerMenu = () => {
           <li>
             <Link to="/information">{t("info")}</Link>
           </li>
-          <li
-            className={`dropdown ${isDropdownOpen ? "open" : ""}`}
-            onClick={toggleDropdown}
-          >
+          <li className={`dropdown ${isDropdownOpen ? "open" : ""}`} onClick={toggleDropdown}>
             <p className="service-text">{t("service.main")}</p>
             <ul className="dropdown-menu">
-              <li>
-                <Link to="/service1">{t("calculator")}</Link>
-              </li>
-              <li>
-                <Link to="/service2">{t("inspection")}</Link>
-              </li>
+              <li><Link to="/service1">{t("calculator")}</Link></li>
+              <li><Link to="/service2">{t("inspection")}</Link></li>
             </ul>
           </li>
           <li>

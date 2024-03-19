@@ -31,7 +31,7 @@ const LanguageSelect = () => {
 
   return (
     <select
-      className="header__navigation-select"
+      className="header__navigation-select .mobile"
       onChange={handleLanguageChange}
       value={selectedLanguage}
     >
