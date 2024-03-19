@@ -9,7 +9,7 @@ const useNewsData = () => {
     const [newsData, setNewsData] = useState([]);
     const [totalPages, setTotalPages] = useState(1);
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 12;
+    const itemsPerPage = 25;
 
     
     useEffect(() => {

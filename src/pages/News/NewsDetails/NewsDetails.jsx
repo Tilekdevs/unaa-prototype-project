@@ -104,6 +104,7 @@ const NewsDetails = () => {
         </div>
         <div className="news__right">
           <h1 className="news__right-title">Смотрите также</h1>
+          <div className="news__right-container">
           {relatedNews
             .filter((relatedNewsItem) => relatedNewsItem.id !== newsItem.id)
             .slice(0, 4)
@@ -131,6 +132,7 @@ const NewsDetails = () => {
                 </div>
               );
             })}
+          </div>
         </div>
       </div>
     </>

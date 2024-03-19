@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../layout/Header/header.scss";
-import i18next from "../../utils/i18n";
+import i18next from "../../utils/lang/i18n";
 
 const LanguageSelect = () => {
   const languages = [

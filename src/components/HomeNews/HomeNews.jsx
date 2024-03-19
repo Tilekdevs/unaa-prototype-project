@@ -6,10 +6,12 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import '../../pages/Home/home.scss';
+import { useTranslation } from 'react-i18next';
 
 const HomeNews = () => {
   const [news, setNews] = useState([]);
   const navigate = useNavigate();
+  const {t} = useTranslation();
 
   useEffect(() => {
     const getNews = async () => {
@@ -26,7 +28,7 @@ const HomeNews = () => {
 
   return (
     <section className='home__news'>
-      <h1 className="home__news-title">Последние новости</h1>
+      <h1 className="home__news-title">{t("homeNewsTitle")}</h1>
       
       {news.length > 0 &&
         <div className="home__news-container">

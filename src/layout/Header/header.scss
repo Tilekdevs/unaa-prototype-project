@@ -23,7 +23,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    width: 300px;
+
   }
 
   &__container-img {
@@ -89,7 +89,7 @@
         padding: 3px 0;
         width: 200px;
         z-index: 150;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         border-radius: 5px;
         &.scrolled {
           background: rgba(23, 23, 23, 0.9);
@@ -141,7 +141,7 @@
   background-color: #171717;
 }
 
-@media screen and (max-width: 1356px) {
+@media screen and (max-width:999px) {
   .header__navigation {
     display: none;
   }

@@ -1,16 +1,14 @@
 import React, { useState, useCallback } from 'react';
-import './loginForm.scss';
 import { IoCloseOutline } from 'react-icons/io5';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { loginAccount } from '../../redux/reducers/userSlice';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 
 const LoginForm = ({ onClose }) => {
-  const [loginData, setLoginData] = useState({
-    username: '',
-    password: ''
-  });
-
+  const [loginData, setLoginData] = useState({ username: '', password: '' });
+  const [isLoginSuccess, setIsLoginSuccess] = useState(false);
   const dispatch = useDispatch();
 
   const handleChange = useCallback((e) => {
@@ -27,6 +25,7 @@ const LoginForm = ({ onClose }) => {
       if (response.data.message === "Вход выполнен успешно") {
         dispatch(loginAccount({ username: updatedLoginData.username }));
         onClose();
+        setIsLoginSuccess(true); // Установка состояния в true при успешном входе
         console.log('Login success:', response.data.message);
       } else {
         console.error('Login failed:', response.data.message);
@@ -40,18 +39,18 @@ const LoginForm = ({ onClose }) => {
     }
   }, [dispatch, loginData, onClose]);
 
-  const handleCloseForm = useCallback(() => {
-    onClose();
-  }, [onClose]);
+  const handleCloseSnackbar = useCallback((event, reason) => {
+    if (reason !== 'clickaway') {
+      setIsLoginSuccess(false);
+    }
+  }, []);
 
   return (
     <div className='overlay'>
       <div className='login'>
-        <IoCloseOutline className='login__close' onClick={handleCloseForm} />
+        <IoCloseOutline className='login__close' onClick={onClose} />
         <p className='login__title'>Вход в аккаунт</p>
-        <p className='login__subtitle'>
-          Войдите в свой аккаунт для доступа к порталу
-        </p>
+        <p className='login__subtitle'>Войдите в свой аккаунт для доступа к порталу</p>
         <div className='login__container'>
           <div className='login__top'>
             <div className='login__form'>
@@ -79,11 +78,19 @@ const LoginForm = ({ onClose }) => {
               />
             </div>
           </div>
-          <button className='login__btn' onClick={handleLogin}>
-            Войти
-          </button>
+          <button className='login__btn' onClick={handleLogin}>Войти</button>
         </div>
       </div>
+      <Snackbar
+        open={isLoginSuccess}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      >
+        <Alert onClose={handleCloseSnackbar} variant='filled' severity="success" sx={{ width: '100%' }}>
+          Вход выполнен успешно!
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

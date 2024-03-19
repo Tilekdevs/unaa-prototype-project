@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/swiper-bundle.css";
-import { FaIdCard } from "react-icons/fa6";
-import { FaCalculator } from "react-icons/fa";
-import { IoMdInformationCircle } from "react-icons/io";
-import { MdPersonSearch } from "react-icons/md";
-import { PiCarDuotone } from "react-icons/pi";
+import { useTranslation } from "react-i18next";
 import "./homeFeatures.scss";
 
 const features = [
@@ -39,6 +35,7 @@ const features = [
 
 const HomeFeatures = () => {
   const [slidesPerView, setSlidesPerView] = useState(3); 
+  const {t} = useTranslation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -63,10 +60,9 @@ const HomeFeatures = () => {
     <div className="wrapper">
       <div className="wrapper__container">
         <div className="wrapper__left">
-          <h1 className="head">Наши услуги</h1>
+          <h1 className="head">{t("ourServices")}</h1>
           <p className="text">
-            Наше агентство предоставляет вам возможность получить выписку по ТС,
-            проверить штрафы, узнать владельца ТС и многое другое.
+            {t("ourServicesDescription")}
           </p>
         </div>
         <div className="wrapper__right">
