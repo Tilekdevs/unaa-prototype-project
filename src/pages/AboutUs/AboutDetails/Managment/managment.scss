@@ -1,17 +1,29 @@
-.managment{
-    width: 100%;
-    &__container{
-        display: flex;
-        gap: 10%;
-    }
-    &__card{
-        display: flex;
-        flex-direction: column;
-        width: 400px;
-        gap: 10px;
-        text-align: center;
-    }
-    &__img{
-        border-radius: 10px;
-    }
+.managment {
+	width: 100%;
+	&__container {
+		display: flex;
+		gap: 10%;
+        
+	}
+	&__card {
+		display: flex;
+		flex-direction: column;
+		width: 400px;
+		gap: 10px;
+		text-align: center;
+		cursor: pointer;
+		color: black;
+		text-decoration: none;
+		:hover {
+			color: blue;
+			transition: 0.3s;
+		}
+	}
+	&__img {
+		border-radius: 10px;
+	}
+}
+
+.MainManagmentDetails {
+    margin-top: 100px;
 }

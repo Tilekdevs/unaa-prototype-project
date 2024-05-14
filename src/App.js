@@ -13,6 +13,8 @@ import CalculatorServices from './pages/Services/Calculator/CalculatorServices'
 import RequestInspection from './pages/Services/RequestForInspection/RequestInspection.jsx'
 import Search from './pages/Search/Search.jsx'
 import Services from './pages/Services/Services.jsx'
+import Managment from './pages/AboutUs/AboutDetails/Managment/Managment.jsx'
+import ManagmentDetails from './pages/AboutUs/AboutDetails/Managment/ManagmentDetails.jsx'
 
 function App() {
 	return (
@@ -24,15 +26,16 @@ function App() {
 					<Route path={'/news'} element={<News />} />
 					<Route path={'/news/:id'} element={<NewsDetails />} />
 					<Route path={'/calculator'} element={<CalculatorServices />} />
-					<Route path={'/information'} element={<Information/>} />
+					<Route path={'/information'} element={<Information />} />
 					<Route path={'/search'} element={<Search />} />
-					<Route path={'/services'} element={<Services/>}/>
+					<Route path={'/services'} element={<Services />} />
 					<Route
 						path={'/request-for-inspection'}
 						element={<RequestInspection />}
 					/>
 					<Route path={'/camera'} element={<Camera />} />
 					<Route path={'/jobs'} element={<Jobs />} />
+					<Route path={'/management/:id'} element={<ManagmentDetails />} />
 					<Route path={'*'} element={<NotFound />} />
 				</Route>
 			</Routes>

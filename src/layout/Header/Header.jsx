@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./header.scss";
-import logo from "../../assets/img/header-logо.jpg";
+import logo from "../../assets/img/header-logo.jpg";
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
 

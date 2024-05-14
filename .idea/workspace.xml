@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4328b0b6-fc34-4eb9-b13c-9b53a73fd32a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomeVideo/HomeVideo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeVideo/HomeVideo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BurgerMenu/burgerMenu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BurgerMenu/burgerMenu.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AboutUs/AboutDetails/Managment/Managment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AboutUs/AboutDetails/Managment/Managment.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AboutUs/AboutDetails/Managment/managment.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AboutUs/AboutDetails/Managment/managment.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AboutUs/AboutDetails/Managments.jsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +70,7 @@
       <workItem from="1709031291833" duration="263000" />
       <workItem from="1709031573698" duration="16000" />
       <workItem from="1709031668866" duration="2109000" />
+      <workItem from="1713980821419" duration="34000" />
     </task>
     <servers />
   </component>
